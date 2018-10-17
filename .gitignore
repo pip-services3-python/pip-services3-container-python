@@ -15,3 +15,4 @@ _mailinglist
 .tox
 .cache/
 .idea/
+.pytest_cache/

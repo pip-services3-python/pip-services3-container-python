@@ -1,5 +1,0 @@
-[
-  "test/refer/test_ManagedReferences.py::TestManagedReferences::()::test_autocreate_component",
-  "test/refer/test_ManagedReferences.py::TestManagedReferences::()::test_string_locator",
-  "test/refer/test_ManagedReferences.py::TestManagedReferences::()::test_null_locator"
-]
