@@ -8,8 +8,8 @@ pip_services_container provides IoC container implementation.
 Links
 `````
 
-* `website <http://www.pipservices.org>`_
-* `development version <http://github.com/pip-services/pip-services-container-python>`
+* `website <http://github.com/pip-services/pip-services>`_
+* `development version <http://github.com/pip-services-python/pip-services-container-python>`
 
 """
 
@@ -18,8 +18,8 @@ from setuptools import find_packages
 
 setup(
     name='pip_services_container',
-    version='2.2.0',
-    url='http://github.com/pip-services/pip-services-container-python',
+    version='3.0.0',
+    url='http://github.com/pip-services-python/pip-services-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
     author_email='seroukhov@gmail.com',
@@ -30,7 +30,7 @@ setup(
     zip_safe=True,
     platforms='any',
     install_requires=[
-        'iso8601', 'PyYAML', 'pip_services_commons'
+        'iso8601', 'PyYAML', 'pip_services_commons', 'pip_services_components'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -38,9 +38,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]    
 )
