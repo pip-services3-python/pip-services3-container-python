@@ -29,6 +29,9 @@ class ReferencesDecorator(IReferences):
     def remove_all(self, locator):
         return self.base_references.remove_all(locator)
 
+    def get_all_locators(self):
+        return self.base_references.get_all_locators()
+
     def get_all(self):
         return self.base_references.get_all()
         
