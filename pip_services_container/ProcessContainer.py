@@ -5,7 +5,7 @@
     
     Process container implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -20,10 +20,33 @@ from pip_services_commons.config import ConfigParams
 from .Container import Container
 
 class ProcessContainer(Container):
+    """
+    Inversion of control (IoC) container that runs as a system process.
+    It processes command line arguments and handles unhandled exceptions and Ctrl-C signal
+    to gracefully shutdown the container.
+
+    ### Command line arguments ###
+        - --config -c             path to JSON or YAML file with container configuration (default: "./config/config.yml")
+        - --param --params -p   value(s) to parameterize the container configuration
+        - --help -h               prints the container usage help
+
+        Example:
+            container = ProcessContainer()
+            container.add_factory(MyComponentFactory())
+
+            container.run()
+    """
     _config_path = './config/config.yaml'
     _exit_event = None
 
     def __init__(self, name = None, description = None):
+        """
+        Creates a new instance of the container.
+
+        :param name: (optional) a container name (accessible via ContextInfo)
+
+        :param description: (optional) a container description (accessible via ContextInfo)
+        """
         super(ProcessContainer, self).__init__(name, description)
         self._logger = ConsoleLogger()
         self._exit_event = threading.Event()
@@ -34,7 +57,7 @@ class ProcessContainer(Container):
         while index < len(args):
             arg = args[index]
             next_arg = args[index + 1] if index < len(args) - 1 else None
-            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg;
+            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg
             if next_arg != None:
                 if arg == "--config" or arg == "-c":
                     return next_arg
@@ -49,7 +72,7 @@ class ProcessContainer(Container):
         while index < len(args):
             arg = args[index]
             next_arg = args[index + 1] if index < len(args) - 1 else None
-            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg;
+            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg
             if next_arg != None:
                 if arg == "--param" or arg == "--params" or arg == "-p":
                     if len(line) > 0:
@@ -111,6 +134,12 @@ class ProcessContainer(Container):
                 pass # Do nothing...
 
     def run(self):
+        """
+        Runs the container by instantiating and running components inside the container.
+
+        It reads the container configuration, creates, configures, references and opens components.
+        On process exit it closes, unreferences and destroys components to gracefully shutdown.
+        """
         if self._show_help():
             self._print_help()
             return

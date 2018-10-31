@@ -36,7 +36,7 @@ class DummyController(IReferenceable, IReconfigurable, IOpenable, INotifiable):
         self._logger.set_references(references)
 
     def is_opened(self):
-        return self._timer.is_started()
+        return self._timer.started()
 
     def open(self, correlation_id):
         self._timer.start()

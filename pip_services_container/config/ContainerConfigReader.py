@@ -5,7 +5,7 @@
     
     Container configuration reader implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -15,9 +15,23 @@ from pip_services_components.config import YamlConfigReader
 from .ContainerConfig import ContainerConfig
 
 class ContainerConfigReader():
-
+    """
+    Helper class that reads container configuration from JSON or YAML file.
+    """
     @staticmethod
     def read_from_file(correlation_id, path, parameters):
+        """
+        Reads container configuration from JSON or YAML file.
+        The type of the file is determined by file extension.
+
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
+
+        :param path: a path to component configuration file.
+
+        :param parameters: values to parameters the configuration or null to skip parameterization.
+
+        :return: the read container configuration
+        """
         if path == None:
             raise ConfigException(correlation_id, "NO_PATH", "Missing config file path")
         
@@ -34,11 +48,33 @@ class ContainerConfigReader():
 
     @staticmethod
     def read_from_json_file(correlation_id, path, parameters):
+        """
+        Reads container configuration from JSON file.
+
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
+
+        :param path: a path to component configuration file.
+
+        :param parameters: values to parameters the configuration or null to skip parameterization.
+
+        :return: the read container configuration
+        """
         config = JsonConfigReader.read_config(correlation_id, path, parameters)
         return ContainerConfig.from_config(config)
 
     @staticmethod
     def read_from_yaml_file(correlation_id, path, parameters):
+        """
+        Reads container configuration from YAML file.
+
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
+
+        :param path: a path to component configuration file.
+
+        :param parameters: values to parameters the configuration or null to skip parameterization.
+
+        :return: the read container configuration
+        """
         config = YamlConfigReader.read_config(correlation_id, path, parameters)
         return ContainerConfig.from_config(config)
 

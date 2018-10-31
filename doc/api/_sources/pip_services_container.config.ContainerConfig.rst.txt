@@ -1,0 +1,7 @@
+pip\_services\_container.config.ContainerConfig module
+======================================================
+
+.. automodule:: pip_services_container.config.ContainerConfig
+    :members:
+    :undoc-members:
+    :show-inheritance:

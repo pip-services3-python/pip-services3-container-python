@@ -5,7 +5,7 @@
     
     Container references implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -21,11 +21,18 @@ from ..config.ContainerConfig import ContainerConfig
 from .ManagedReferences import ManagedReferences
 
 class ContainerReferences(ManagedReferences):
-    
+    """
+    Container managed references that can be created from container configuration.
+    """
     def __init__(self):
         super(ContainerReferences, self).__init__()
 
     def put_from_config(self, config):
+        """
+        Puts components into the references from container configuration.
+
+        :param config: a container configuration with information of components to be added.
+        """
         for component_config in config:
             component = None
             locator = None

@@ -1,0 +1,7 @@
+pip\_services\_container.ProcessContainer module
+================================================
+
+.. automodule:: pip_services_container.ProcessContainer
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+pip\_services\_container.refer.LinkReferencesDecorator module
+=============================================================
+
+.. automodule:: pip_services_container.refer.LinkReferencesDecorator
+    :members:
+    :undoc-members:
+    :show-inheritance:

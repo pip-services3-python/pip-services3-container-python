@@ -5,7 +5,7 @@
     
     Build references decorator implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -17,12 +17,30 @@ from pip_services_components.build import IFactory
 from .ReferencesDecorator import ReferencesDecorator
 
 class BuildReferencesDecorator(ReferencesDecorator):
-
+    """
+    References decorator that automatically creates missing components using
+    available component factories upon component retrival.
+    """
     def __init__(self, base_references, parent_references):
+        """
+        Creates a new instance of the decorator.
+
+        :param base_references: the next references or decorator in the chain.
+
+        :param parent_references: the decorator at the top of the chain.
+        """
         super(BuildReferencesDecorator, self).__init__(base_references, parent_references)
 
 
     def find_factory(self, locator):
+        """
+        Finds a factory capable creating component by given descriptor
+        from the components registered in the references.
+
+        :param locator: a locator of component to be created.
+
+        :return: found factory or null if factory was not found.
+        """
         components = self.get_all()
         for component in components:
             if isinstance(component, IFactory):
@@ -32,6 +50,15 @@ class BuildReferencesDecorator(ReferencesDecorator):
 
 
     def create(self, locator, factory):
+        """
+        Creates a component identified by given locator.
+
+        :param locator: a locator to identify component to be created.
+
+        :param factory: a factory that shall create the component.
+
+        :return: the created component.
+        """
         if factory == None:
             return None
 
@@ -43,6 +70,16 @@ class BuildReferencesDecorator(ReferencesDecorator):
 
 
     def clarify_locator(self, locator, factory):
+        """
+        Clarifies a component locator by merging two descriptors into one to replace missing fields.
+        That allows to get a more complete descriptor that includes all possible fields.
+
+        :param locator: a component locator to clarify.
+
+        :param factory: a factory that shall create the component.
+
+        :return: clarified component descriptor (locator)
+        """
         if factory == None:
             return locator
         if not isinstance(locator, Descriptor):
@@ -67,6 +104,15 @@ class BuildReferencesDecorator(ReferencesDecorator):
 
 
     def find(self, locator, required):
+        """
+        Gets all component references that match specified locator.
+
+        :param locator: the locator to find a reference by.
+
+        :param required: forces to raise an exception if no reference is found.
+
+        :return: a list with matching component references.
+        """
         components = super(BuildReferencesDecorator, self).find(locator, False)
 
         # Try to create component

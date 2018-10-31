@@ -1,0 +1,7 @@
+pip\_services\_container.refer.ManagedReferences module
+=======================================================
+
+.. automodule:: pip_services_container.refer.ManagedReferences
+    :members:
+    :undoc-members:
+    :show-inheritance:

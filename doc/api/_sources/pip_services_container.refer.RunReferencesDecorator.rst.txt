@@ -1,0 +1,7 @@
+pip\_services\_container.refer.RunReferencesDecorator module
+============================================================
+
+.. automodule:: pip_services_container.refer.RunReferencesDecorator
+    :members:
+    :undoc-members:
+    :show-inheritance:

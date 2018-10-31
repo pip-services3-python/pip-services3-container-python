@@ -1,0 +1,19 @@
+pip\_services\_container.config package
+=======================================
+
+Submodules
+----------
+
+.. toctree::
+
+   pip_services_container.config.ComponentConfig
+   pip_services_container.config.ContainerConfig
+   pip_services_container.config.ContainerConfigReader
+
+Module contents
+---------------
+
+.. automodule:: pip_services_container.config
+    :members:
+    :undoc-members:
+    :show-inheritance:

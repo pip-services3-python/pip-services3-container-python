@@ -1,0 +1,22 @@
+pip\_services\_container.refer package
+======================================
+
+Submodules
+----------
+
+.. toctree::
+
+   pip_services_container.refer.BuildReferencesDecorator
+   pip_services_container.refer.ContainerReferences
+   pip_services_container.refer.LinkReferencesDecorator
+   pip_services_container.refer.ManagedReferences
+   pip_services_container.refer.ReferencesDecorator
+   pip_services_container.refer.RunReferencesDecorator
+
+Module contents
+---------------
+
+.. automodule:: pip_services_container.refer
+    :members:
+    :undoc-members:
+    :show-inheritance:

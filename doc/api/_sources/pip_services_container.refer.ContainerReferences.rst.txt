@@ -1,0 +1,7 @@
+pip\_services\_container.refer.ContainerReferences module
+=========================================================
+
+.. automodule:: pip_services_container.refer.ContainerReferences
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -5,7 +5,7 @@
     
     Default container factory implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -19,14 +19,21 @@ from pip_services_components.auth import DefaultCredentialStoreFactory
 from pip_services_components.connect import DefaultDiscoveryFactory
 from pip_services_components.info._DefaultInfoFactory import DefaultInfoFactory
 
-DefaultContainerFactoryDescriptor = Descriptor(
-    "pip-services-container", "factory", "container", "default", "1.0"
-)
-
 class DefaultContainerFactory(CompositeFactory):
+    """
+    Creates default container components (loggers, counters, caches, locks, etc.) by their descriptors.
+    """
+    DefaultContainerFactoryDescriptor = Descriptor(
+        "pip-services", "factory", "container", "default", "1.0"
+    )
 
-    def __init__(self):
-        super(DefaultContainerFactory, self).__init__()
+    def __init__(self, *factories):
+        """
+        Create a new instance of the factory and sets nested factories.
+
+        :param factories: a list of nested factories
+        """
+        super(DefaultContainerFactory, self).__init__(factories)
         self.add(DefaultInfoFactory())
         self.add(DefaultLoggerFactory())
         self.add(DefaultCountersFactory())

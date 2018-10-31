@@ -1,0 +1,7 @@
+pip\_services\_container.build.DefaultContainerFactory module
+=============================================================
+
+.. automodule:: pip_services_container.build.DefaultContainerFactory
+    :members:
+    :undoc-members:
+    :show-inheritance:
