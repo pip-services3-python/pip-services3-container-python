@@ -4,7 +4,7 @@ init:
 clean:
 	rm -rf .cache
 	rm -rf build
-	rm -rf pip_services_commonds.egg-info
+	rm -rf pip_services_container.egg-info
 	rm -f pip_services_container/*.pyc
 	rm -f pip_services_container/**/*.pyc
 	rm -rf test/__pycache__

@@ -1,5 +1,17 @@
 # IoC container for Pip.Services in Python Changelog
 
+## <a name="3.0.0"></a> 3.0.0 (2018-10-30)
+
+### New release
+* Restructuring package
+
+### Features
+- **Build** - Container default factory
+- **Config** - Container configuration
+- **Refer** - Container references
+- **Container**
+- **Proccess Container**
+
 ## <a name="2.2.0"></a> 2.2.0 (2017-04-20)
 
 ### Features
