@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.Container
+    pip_services3_container.Container
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Container implementation
@@ -11,22 +11,22 @@
 
 import traceback
 
-from pip_services_commons.config import IConfigurable
-from pip_services_components.info import _DefaultInfoFactory
-from pip_services_components.log import NullLogger
-from pip_services_components.log import CompositeLogger
-from pip_services_commons.errors import InvalidStateException
-from pip_services_commons.refer import Descriptor
-from pip_services_commons.refer import IReferenceable
-from pip_services_commons.refer import IUnreferenceable
-from pip_services_commons.refer import Referencer
-from pip_services_commons.run import IOpenable
-from pip_services_commons.run import Opener
-from pip_services_commons.run import Closer
+from pip_services3_commons.config import IConfigurable
+from pip_services3_components.info import _DefaultInfoFactory
+from pip_services3_components.log import NullLogger
+from pip_services3_components.log import CompositeLogger
+from pip_services3_commons.errors import InvalidStateException
+from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.refer import IReferenceable
+from pip_services3_commons.refer import IUnreferenceable
+from pip_services3_commons.refer import Referencer
+from pip_services3_commons.run import IOpenable
+from pip_services3_commons.run import Opener
+from pip_services3_commons.run import Closer
 
 from .build.DefaultContainerFactory import DefaultContainerFactory
-from pip_services_components.info.ContextInfo import ContextInfo
-from pip_services_components.info._DefaultInfoFactory import DefaultInfoFactory
+from pip_services3_components.info.ContextInfo import ContextInfo
+from pip_services3_components.info._DefaultInfoFactory import DefaultInfoFactory
 from .config.ContainerConfigReader import ContainerConfigReader
 from .refer.ContainerReferences import ContainerReferences
 from .config.ContainerConfig import ContainerConfig

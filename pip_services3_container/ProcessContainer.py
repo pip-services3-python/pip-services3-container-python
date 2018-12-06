@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.ProcessContainer
+    pip_services3_container.ProcessContainer
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Process container implementation
@@ -15,8 +15,8 @@ import signal
 import time
 import threading
 
-from pip_services_components.log import ConsoleLogger
-from pip_services_commons.config import ConfigParams
+from pip_services3_components.log import ConsoleLogger
+from pip_services3_commons.config import ConfigParams
 from .Container import Container
 
 class ProcessContainer(Container):

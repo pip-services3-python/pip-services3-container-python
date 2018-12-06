@@ -11,8 +11,8 @@
 
 from .DummyController import DummyController
 
-from pip_services_commons.refer import Descriptor
-from pip_services_components.build import Factory
+from pip_services3_commons.refer import Descriptor
+from pip_services3_components.build import Factory
 
 DummyFactoryDescriptor = Descriptor(
     "pip-services-dummies", "factory", "default", "default", "1.0"

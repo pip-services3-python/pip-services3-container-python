@@ -9,11 +9,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_container.config import ComponentConfig
-from pip_services_commons.reflect import TypeDescriptor
-from pip_services_commons.refer import Descriptor
-from pip_services_commons.config import ConfigParams
-from pip_services_commons.errors import ConfigException
+from pip_services3_container.config import ComponentConfig
+from pip_services3_commons.reflect import TypeDescriptor
+from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.config import ConfigParams
+from pip_services3_commons.errors import ConfigException
 
 class TestComponentConfig:
 

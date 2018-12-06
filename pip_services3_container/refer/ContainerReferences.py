@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.ContainerReferences
+    pip_services3_container.refer.ContainerReferences
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Container references implementation
@@ -9,12 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.config import IConfigurable
-from pip_services_components.build import CreateException
-from pip_services_commons.refer import References
-from pip_services_commons.refer import ReferenceException
-from pip_services_commons.refer import IReferenceable
-from pip_services_commons.reflect import TypeReflector
+from pip_services3_commons.config import IConfigurable
+from pip_services3_components.build import CreateException
+from pip_services3_commons.refer import References
+from pip_services3_commons.refer import ReferenceException
+from pip_services3_commons.refer import IReferenceable
+from pip_services3_commons.reflect import TypeReflector
 
 from ..config.ComponentConfig import ComponentConfig
 from ..config.ContainerConfig import ContainerConfig

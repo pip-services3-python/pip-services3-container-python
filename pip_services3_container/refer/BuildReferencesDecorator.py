@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.BuildReferencesDecorator
+    pip_services3_container.refer.BuildReferencesDecorator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Build references decorator implementation
@@ -9,10 +9,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import IReferences
-from pip_services_commons.refer import Descriptor
-from pip_services_commons.refer import ReferenceException
-from pip_services_components.build import IFactory
+from pip_services3_commons.refer import IReferences
+from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.refer import ReferenceException
+from pip_services3_components.build import IFactory
 
 from .ReferencesDecorator import ReferencesDecorator
 

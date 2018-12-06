@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_components.log import ConsoleLogger
+from pip_services3_components.log import ConsoleLogger
 from .DummyProcess import DummyProcess
 
 if __name__ == '__main__':

@@ -9,13 +9,13 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import IReferenceable
-from pip_services_commons.config import IReconfigurable
-from pip_services_commons.run import IOpenable
-from pip_services_commons.run import IClosable
-from pip_services_commons.run import INotifiable
-from pip_services_commons.run import FixedRateTimer
-from pip_services_components.log import CompositeLogger
+from pip_services3_commons.refer import IReferenceable
+from pip_services3_commons.config import IReconfigurable
+from pip_services3_commons.run import IOpenable
+from pip_services3_commons.run import IClosable
+from pip_services3_commons.run import INotifiable
+from pip_services3_commons.run import FixedRateTimer
+from pip_services3_components.log import CompositeLogger
 
 class DummyController(IReferenceable, IReconfigurable, IOpenable, INotifiable):
     _timer = None

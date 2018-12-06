@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.config.ContainerConfig
+    pip_services3_container.config.ContainerConfig
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Container configuration implementation
@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.config import ConfigParams
+from pip_services3_commons.config import ConfigParams
 from .ComponentConfig import ComponentConfig
 
 class ContainerConfig(list):

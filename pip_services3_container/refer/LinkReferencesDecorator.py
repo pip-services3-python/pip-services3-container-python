@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.LinkReferencesDecorator
+    pip_services3_container.refer.LinkReferencesDecorator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Link references decorator implementation
@@ -9,9 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import IReferences
-from pip_services_commons.refer import Referencer
-from pip_services_commons.run import IOpenable
+from pip_services3_commons.refer import IReferences
+from pip_services3_commons.refer import Referencer
+from pip_services3_commons.run import IOpenable
 
 from .ReferencesDecorator import ReferencesDecorator
 

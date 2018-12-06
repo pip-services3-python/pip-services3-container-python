@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.ReferencesDecorator
+    pip_services3_container.refer.ReferencesDecorator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     References decorator implementation
@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import IReferences
+from pip_services3_commons.refer import IReferences
 
 class ReferencesDecorator(IReferences):
     """

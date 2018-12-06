@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.config.ComponentConfig
+    pip_services3_container.config.ComponentConfig
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Component configuration implementation
@@ -9,9 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.reflect import TypeDescriptor
-from pip_services_commons.refer import Descriptor
-from pip_services_commons.errors import ConfigException
+from pip_services3_commons.reflect import TypeDescriptor
+from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.errors import ConfigException
 
 class ComponentConfig():
     """

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.__init__
+    pip_services3_container.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Contains implementation of the inversion of control container, which creates objects

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.config.__init__
+    pip_services3_container.config.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Container configuration serves as a recipe for instantiating and configuring components inside the container.

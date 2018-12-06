@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.build.DefaultContainerFactory
+    pip_services3_container.build.DefaultContainerFactory
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Default container factory implementation
@@ -9,15 +9,15 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import Descriptor
-from pip_services_components.build import CompositeFactory
-from pip_services_components.log import DefaultLoggerFactory
-from pip_services_components.count import DefaultCountersFactory
-from pip_services_components.config import DefaultConfigReaderFactory
-from pip_services_components.cache import DefaultCacheFactory
-from pip_services_components.auth import DefaultCredentialStoreFactory
-from pip_services_components.connect import DefaultDiscoveryFactory
-from pip_services_components.info._DefaultInfoFactory import DefaultInfoFactory
+from pip_services3_commons.refer import Descriptor
+from pip_services3_components.build import CompositeFactory
+from pip_services3_components.log import DefaultLoggerFactory
+from pip_services3_components.count import DefaultCountersFactory
+from pip_services3_components.config import DefaultConfigReaderFactory
+from pip_services3_components.cache import DefaultCacheFactory
+from pip_services3_components.auth import DefaultCredentialStoreFactory
+from pip_services3_components.connect import DefaultDiscoveryFactory
+from pip_services3_components.info._DefaultInfoFactory import DefaultInfoFactory
 
 class DefaultContainerFactory(CompositeFactory):
     """

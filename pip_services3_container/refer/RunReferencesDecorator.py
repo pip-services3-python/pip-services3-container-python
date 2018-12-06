@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.RunReferencesDecorator
+    pip_services3_container.refer.RunReferencesDecorator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Run references decorator implementation
@@ -9,9 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import IReferences
-from pip_services_commons.run import Opener
-from pip_services_commons.run import Closer
+from pip_services3_commons.refer import IReferences
+from pip_services3_commons.run import Opener
+from pip_services3_commons.run import Closer
 
 from .ReferencesDecorator import ReferencesDecorator
 

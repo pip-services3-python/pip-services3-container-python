@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.refer.ManagedReferences
+    pip_services3_container.refer.ManagedReferences
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Managed references implementation
@@ -9,11 +9,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import References
-from pip_services_commons.refer import Referencer
-from pip_services_commons.run import IOpenable
-from pip_services_commons.run import Opener
-from pip_services_commons.run import Closer
+from pip_services3_commons.refer import References
+from pip_services3_commons.refer import Referencer
+from pip_services3_commons.run import IOpenable
+from pip_services3_commons.run import Opener
+from pip_services3_commons.run import Closer
 
 from .ReferencesDecorator import ReferencesDecorator
 from .BuildReferencesDecorator import BuildReferencesDecorator

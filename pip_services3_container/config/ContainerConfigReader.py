@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services_container.config.ContainerConfigReader
+    pip_services3_container.config.ContainerConfigReader
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Container configuration reader implementation
@@ -9,9 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.errors import ConfigException
-from pip_services_components.config import JsonConfigReader
-from pip_services_components.config import YamlConfigReader
+from pip_services3_commons.errors import ConfigException
+from pip_services3_components.config import JsonConfigReader
+from pip_services3_components.config import YamlConfigReader
 from .ContainerConfig import ContainerConfig
 
 class ContainerConfigReader():

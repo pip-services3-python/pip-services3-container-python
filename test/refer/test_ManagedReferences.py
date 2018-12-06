@@ -9,10 +9,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.refer import Descriptor
-from pip_services_components.log import ILogger
-from pip_services_components.log import DefaultLoggerFactory
-from pip_services_container.refer import ManagedReferences
+from pip_services3_commons.refer import Descriptor
+from pip_services3_components.log import ILogger
+from pip_services3_components.log import DefaultLoggerFactory
+from pip_services3_container.refer import ManagedReferences
 
 class TestManagedReferences():
 
