@@ -3,7 +3,8 @@
     pip_services3_container.config.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Container configuration serves as a recipe for instantiating and configuring components inside the container.
+    Container configuration serves as a recipe for instantiating and
+    configuring components inside the container.
 
     External configurations (stored as YAML or JSON) are passed to the container
     and define the structure of objects that need to be recreated in the container.

@@ -3,8 +3,8 @@
     pip_services3_container.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Contains implementation of the inversion of control container, which creates objects
-    and controls their lifecycle(*) using various configurations.
+    Contains implementation of the inversion of control container,
+    which creates objects and controls their lifecycle(*) using various configurations.
 
     Using generic containers, we can create more specialized containers – one of which is the process
     container. It represents a system process, receives its configuration file via the command line,

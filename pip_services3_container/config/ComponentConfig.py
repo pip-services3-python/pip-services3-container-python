@@ -3,7 +3,7 @@
     pip_services3_container.config.ComponentConfig
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Component configuration implementation
+    Component configuration implementation.
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.

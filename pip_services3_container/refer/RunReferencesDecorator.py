@@ -3,7 +3,7 @@
     pip_services3_container.refer.RunReferencesDecorator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Run references decorator implementation
+    Run references decorator implementation.
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
