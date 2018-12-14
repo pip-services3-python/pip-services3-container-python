@@ -22,7 +22,7 @@ run:
 
 docgen:
 	rm -rf build/doc
-	sphinx-apidoc -f -e -o build/doc pip_services_container
+	sphinx-apidoc -f -e -o build/doc pip_services3_container
 	mv build/doc/modules.rst build/doc/index.rst
 	rm -rf doc/api
 	sphinx-build -b html build/doc doc/api -c .

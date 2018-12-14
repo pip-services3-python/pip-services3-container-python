@@ -1,7 +1,0 @@
-pip\_services\_container.config.ComponentConfig module
-======================================================
-
-.. automodule:: pip_services_container.config.ComponentConfig
-    :members:
-    :undoc-members:
-    :show-inheritance:

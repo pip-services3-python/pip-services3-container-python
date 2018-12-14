@@ -1,7 +1,0 @@
-pip\_services\_container.config.ContainerConfigReader module
-============================================================
-
-.. automodule:: pip_services_container.config.ContainerConfigReader
-    :members:
-    :undoc-members:
-    :show-inheritance:

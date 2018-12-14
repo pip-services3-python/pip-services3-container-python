@@ -1,7 +1,0 @@
-pip\_services\_container.refer.BuildReferencesDecorator module
-==============================================================
-
-.. automodule:: pip_services_container.refer.BuildReferencesDecorator
-    :members:
-    :undoc-members:
-    :show-inheritance:
