@@ -86,18 +86,18 @@
 <h3>pip_services3_container.refer.__init__<a class="headerlink" href="#pip-services3-container-refer-init" title="Permalink to this headline">¶</a></h3>
 <p>Provides the inversion of control design pattern but does not contain the fully
 functional container (we can just only create a class that will set various references).</p>
-<p>Once the objects of a container are configured, if they implement the IReferencable interface,
+<p>Once the objects of a container are configured, if they implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html">IReferenceable</a> interface,
 they are passed a set of references for recreating links between objects in the container.
-If objects implement the IOpenable interface, the &lt;code&gt;open()&lt;/code&gt; method is called and they start to work.
+If objects implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html">IOpenable</a> interface, the <i>open()</i> method is called and they start to work.
 Connections to various services are made, after which the objects start,
 the container starts running, and the objects carry out their tasks. When the container starts to close,
-the objects that implement the ICloseable interface are closed via their
-&lt;code&gt;close()&lt;/code&gt; method (which should make them stop working and disconnect from other services),
-after which objects that implement the IUnreferencable interface delete various links between objects,
+the objects that implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IClosable.html">ICloseable</a> interface are closed via their
+<i>close()</i> method (which should make them stop working and disconnect from other services),
+after which objects that implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html">IUnreferenceable</a> interface delete various links between objects,
 and, finally, the contains destroys all objects and turns off.</p>
-<p>[[BuildReferencesDecorator Build]], [[LinkReferencesDecorator Link]], and
-[[RunReferencesDecorator Run]] - ReferenceDecorators are used during the corresponding building, linking,
-and running stages and are united in [[ManagedReferences]], which are extended by [[ContainerReferences]].</p>
+<p><a href="pip_services3_container.refer.BuildReferencesDecorator.html">BuildReferencesDecorator</a> Build, <a href="pip_services3_container.refer.LinkReferencesDecorator.html">LinkReferencesDecorator</a> Link, and
+<a href="pip_services3_container.refer.RunReferencesDecorator.html">RunReferencesDecorator</a> Run - <a href="pip_services3_container.refer.ReferencesDecorator.html">ReferenceDecorators</a> are used during the corresponding building, linking,
+and running stages and are united in <a href="pip_services3_container.refer.ManagedReferences.html">ManagedReferences</a>, which are extended by <a href="pip_services3_container.refer.ContainerReferences.html">ContainerReferences</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -136,7 +136,7 @@ such as automatic component creation, automatic registration and opening.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list with matching component references.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a [[ReferenceException]] when required is set to true but no references found.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a ReferenceException when required is set to true but no references found.</p>
 </td>
 </tr>
 </tbody>
@@ -199,7 +199,7 @@ such as automatic component creation, automatic registration and opening.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a matching component reference.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -234,7 +234,7 @@ At least one component reference must be present. If it doesn’t the method thr
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with matching component references.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -268,7 +268,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use <i>removeAll</i> method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -370,7 +370,7 @@ that implement IOpenable interface and closes removed components that implement 
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.RunReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use <i>removeAll</i> method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -473,7 +473,7 @@ from removed components that implement IUnreferenceable interface.</p>
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use <i>removeAll</i> method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
