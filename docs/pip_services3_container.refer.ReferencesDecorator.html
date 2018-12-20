@@ -67,7 +67,7 @@
 <dt id="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator">
 <em class="property">class </em><code class="descclassname">pip_services3_container.refer.ReferencesDecorator.</code><code class="descname">ReferencesDecorator</code><span class="sig-paren">(</span><em>base_references</em>, <em>parent_references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferences.IReferences</span></code></p>
-<p>Chainable decorator for IReferences that allows to inject additional capabilities
+<p>Chainable decorator for <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferences.html">IReferences</a> that allows to inject additional capabilities
 such as automatic component creation, automatic registration and opening.</p>
 <dl class="attribute">
 <dt id="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator.base_references">
@@ -91,7 +91,7 @@ such as automatic component creation, automatic registration and opening.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list with matching component references.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a [[ReferenceException]] when required is set to true but no references found.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a ReferenceException when required is set to true but no references found.</p>
 </td>
 </tr>
 </tbody>
@@ -154,7 +154,7 @@ such as automatic component creation, automatic registration and opening.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a matching component reference.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -189,7 +189,7 @@ At least one component reference must be present. If it doesn’t the method thr
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with matching component references.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -223,7 +223,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use <i>removeAll</i> method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

@@ -151,7 +151,7 @@ container. It represents a system process, receives its configuration file via t
 and creates a container, starts it, reads its configuration, recreates objects, runs them, and then,
 after pressing ctrl-c, turns off and destroys the objects.</p>
 <p>Another example of containers are lambda functions, service fabric containers, and so on.</p>
-<p>### (*) Compont lifecycle: ###</p>
+<p>### (*) Component lifecycle: ###</p>
 <p>External configurations (stored as YAML or JSON) are passed to the container
 and define the structure of objects that need to be recreated in the container.
 Objects can be defined in two ways:</p>
@@ -162,15 +162,15 @@ Objects can be defined in two ways:</p>
 </ul>
 </div></blockquote>
 <p>In addition, various configurations are stored for each object. The container recreates the
-objects and, if they implement the IConfigurable interface, passes them their configurations.
-Once the objects of a container are configured, if they implement the IReferencable interface,
+objects and, if they implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.IConfigurable.html">IConfigurable</a> interface, passes them their configurations.
+Once the objects of a container are configured, if they implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html">IReferenceable</a> interface,
 they are passed a set of references for recreating links between objects in the container.
-If objects implement the IOpenable interface, the &lt;code&gt;open()&lt;/code&gt; method is called and they
+If objects implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html">IOpenable</a> interface, the <i>open()</i> method is called and they
 start to work. Connections to various services are made, after which the objects start, the
 container starts running, and the objects carry out their tasks. When the container
-starts to close, the objects that implement the ICloseable interface are closed via their
-&lt;code&gt;close()&lt;/code&gt; method (which should make them stop working and disconnect from other services),
-after which objects that implement the IUnreferencable interface delete various links between
+starts to close, the objects that implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IClosable.html">ICloseable</a> interface are closed via their
+<i>close()</i> method (which should make them stop working and disconnect from other services),
+after which objects that implement the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html">IUnreferenceable</a> interface delete various links between
 objects, and, finally, the contains destroys all objects and turns off.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

@@ -73,22 +73,22 @@ The configuration contains a list of components identified by type or locator, f
 <dt>On container start it performs the following actions:</dt>
 <dd><ul class="first last simple">
 <li>Creates components using their types or calls registered factories to create components using their locators</li>
-<li>Configures components that implement IConfigurable interface and passes them their configuration parameters</li>
-<li>Sets references to components that implement IReferenceable interface and passes them references of all components in the container</li>
-<li>Opens components that implement IOpenable interface</li>
+<li>Configures components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.IConfigurable.html">IConfigurable</a> interface and passes them their configuration parameters</li>
+<li>Sets references to components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html">IReferenceable</a> interface and passes them references of all components in the container</li>
+<li>Opens components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html">IOpenable</a> interface</li>
 </ul>
 </dd>
 <dt>On container stop actions are performed in reversed order:</dt>
 <dd><ul class="first last simple">
-<li>Closes components that implement ICloseable interface</li>
-<li>Unsets references in components that implement IUnreferenceable interface</li>
+<li>Closes components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IClosable.html">ICloseable</a> interface</li>
+<li>Unsets references in components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html">IUnreferenceable</a> interface</li>
 <li>Destroys components in the container.</li>
 </ul>
 </dd>
 </dl>
 <p>The component configuration can be parameterized by dynamic values. That allows specialized containers
 to inject parameters from command line or from environment variables.</p>
-<p>The container automatically creates a ContextInfo component that carries detail information
+<p>The container automatically creates a <a href="https://pip-services3-python.github.io/pip-services3-components-python/pip_services3_components.info.ContextInfo.html">ContextInfo</a> component that carries detail information
 about the container and makes it available for other components.</p>
 <p>### Configuration parameters ###</p>
 <blockquote>
@@ -100,25 +100,23 @@ about the container and makes it available for other components.</p>
 </ul>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">======= config.yaml ========
-- descriptor: mygroup:mycomponent1:default:default:1.0
-param1: 123
-param2: ABC</p>
-<ul class="simple">
-<li>type: mycomponent2,mypackage</li>
-</ul>
-<p>param1: 321
-param2: XYZ
-============================</p>
-<p>container = Container()
-container.add_factory(MyComponentFactory())</p>
-<p>parameters = ConfigParams.from_value(os.env)
-container.read_config_from_file(“123”, “./config/config.yml”, parameters)</p>
-<p class="last">container.open(“123”)
-print “Container is opened”
-…
-container.close(“123”)
-print “Container is closed”</p>
+<dd>======= config.yaml ========
+<dd>- descriptor: mygroup:mycomponent1:default:default:1.0
+<dd>param1: 123
+<dd>param2: ABC
+<dd>- type: mycomponent2,mypackage
+<dd>param1: 321
+<dd>param2: XYZ
+<dd>============================
+<dd>container = Container()
+<dd>container.add_factory(MyComponentFactory())</p>
+<dd>parameters = ConfigParams.from_value(os.env)
+<dd>container.read_config_from_file(“123”, “./config/config.yml”, parameters)</p>
+<dd>container.open(“123”)
+<dd>print “Container is opened”
+<dd>…
+<dd>container.close(“123”)
+<dd>print “Container is closed”</p>
 </dd>
 </dl>
 </div></blockquote>

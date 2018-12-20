@@ -68,7 +68,7 @@
 <em class="property">class </em><code class="descclassname">pip_services3_container.refer.RunReferencesDecorator.</code><code class="descname">RunReferencesDecorator</code><span class="sig-paren">(</span><em>base_references</em>, <em>parent_references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.RunReferencesDecorator.RunReferencesDecorator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_container.refer.ReferencesDecorator.html#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator" title="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator</span></code></a></p>
 <p>References decorator that automatically opens to newly added components
-that implement IOpenable interface and closes removed components that implement ICloseable interface.</p>
+that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html">IOpenable</a> interface and closes removed components that implement <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IClosable.html">ICloseable</a> interface.</p>
 <dl class="method">
 <dt id="pip_services3_container.refer.RunReferencesDecorator.RunReferencesDecorator.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.RunReferencesDecorator.RunReferencesDecorator.close" title="Permalink to this definition">¶</a></dt>
@@ -134,7 +134,7 @@ that implement IOpenable interface and closes removed components that implement 
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.RunReferencesDecorator.RunReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use <i>removeAll</i> method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
