@@ -1,9 +1,9 @@
 ---
-- descriptor: "pip-services-commons:logger:console:*:*"
+- descriptor: "pip-services:logger:console:*:*"
   level: "trace"
 
 - descriptor: "pip-services-dummies:controller:*:*:*"
   message: "Hello {{ USER }} from dummy controller #1"
 
-- type: "DummyController,examples.DummyController"
-  message: "Hello {{ USER }} from dummy controller #2"
+# - type: "DummyController,examples.DummyController"
+#   message: "Hello {{ USER }} from dummy controller #2"
