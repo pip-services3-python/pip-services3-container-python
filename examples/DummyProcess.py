@@ -10,7 +10,7 @@
 """
 
 from pip_services3_container.ProcessContainer import ProcessContainer
-from .DummyFactory import DummyFactory
+from DummyFactory import DummyFactory
 
 class DummyProcess(ProcessContainer):
 

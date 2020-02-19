@@ -10,7 +10,7 @@
 """
 
 from pip_services3_components.log import ConsoleLogger
-from .DummyProcess import DummyProcess
+from DummyProcess import DummyProcess
 
 if __name__ == '__main__':
     runner = DummyProcess()
@@ -18,5 +18,5 @@ if __name__ == '__main__':
         runner.run()
     except Exception as ex:
         ConsoleLogger().fatal("dummy", ex, "Error: ")
-        #print(traceback.format_exc(ex))
-        #sys.stderr.write(str(e) + '\n')
+        print(traceback.format_exc(ex))
+        sys.stderr.write(str(e) + '\n')
