@@ -2,9 +2,9 @@
 """
     pip_services3_container.Container
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Container implementation.
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -30,6 +30,7 @@ from pip_services3_components.info._DefaultInfoFactory import DefaultInfoFactory
 from .config.ContainerConfigReader import ContainerConfigReader
 from .refer.ContainerReferences import ContainerReferences
 from .config.ContainerConfig import ContainerConfig
+
 
 class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
     """
@@ -91,7 +92,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
     _factories = None
     _references = None
 
-    def __init__(self, name = None, description = None):
+    def __init__(self, name=None, description=None):
         """
         Creates a new instance of the container.
 
@@ -137,11 +138,11 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         Unsets (clears) previously set references to dependent components.
         """
         pass
-        
+
     def _init_references(self, references):
         # Override in base classes
         existingInfo = references.get_one_optional(_DefaultInfoFactory.ContextInfoDescriptor)
-        if existingInfo == None:
+        if existingInfo is None:
             references.put(_DefaultInfoFactory.ContextInfoDescriptor, self._info)
         else:
             self._info = existingInfo
@@ -162,7 +163,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
         :return: true if the component has been opened and false otherwise.
         """
-        return self._references != None
+        return self._references is not None
 
     def open(self, correlation_id):
         """
@@ -170,12 +171,12 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
-        if self._references != None:
+        if self._references is not None:
             raise InvalidStateException(correlation_id, "ALREADY_OPENED", "Container was already opened")
-                
+
         try:
             self._logger.trace(correlation_id, "Starting container.")
-            
+
             # Create references with configured components
             self._references = ContainerReferences()
             self._init_references(self._references)
@@ -203,11 +204,11 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
-        if self._references == None:
+        if self._references is None:
             return
-                
+
         try:
-            self._logger.trace(correlation_id, "Stopping " + self._info.get_name() + " container")
+            self._logger.trace(correlation_id, "Stopping " + self._info.name + " container")
 
             # Unset references for child container
             self.unset_references()
@@ -216,7 +217,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             self._references.close(correlation_id)
             self._references = None
 
-            self._logger.info(correlation_id, "Container " + self._info.get_name() + " stopped")
+            self._logger.info(correlation_id, "Container " + self._info.name + " stopped")
         except Exception as ex:
             self._logger.error(correlation_id, ex, "Failed to stop container")
             raise ex
