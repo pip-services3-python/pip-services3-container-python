@@ -1,8 +1,9 @@
 iso8601
 PyYAML
 pytest
+pytz
+pystache
+pybars3
 numpy
-#Sphinx
 pip_services3_commons
 pip_services3_components
-

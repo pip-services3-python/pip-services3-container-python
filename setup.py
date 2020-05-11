@@ -15,10 +15,12 @@ Links
 
 from setuptools import setup
 from setuptools import find_packages
-
+with open('component.json') as json_file:
+    config = json.load(json_file)
+    
 setup(
     name='pip_services3_container',
-    version='3.0.0',
+    version=config['version'],
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
