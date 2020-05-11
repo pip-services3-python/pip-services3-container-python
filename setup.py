@@ -15,6 +15,8 @@ Links
 
 from setuptools import setup
 from setuptools import find_packages
+import json
+
 with open('component.json') as json_file:
     config = json.load(json_file)
     
