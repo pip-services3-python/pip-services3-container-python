@@ -41,4 +41,5 @@ class DefaultContainerFactory(CompositeFactory):
         self.add(DefaultCacheFactory())
         self.add(DefaultCredentialStoreFactory())
         self.add(DefaultDiscoveryFactory())
+        # TODO Add DefaultTestFactory
 
