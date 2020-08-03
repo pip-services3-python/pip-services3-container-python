@@ -2,9 +2,9 @@
 """
     pip_services3_container.ProcessContainer
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Process container implementation.
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -18,6 +18,7 @@ import threading
 from pip_services3_components.log import ConsoleLogger
 from pip_services3_commons.config import ConfigParams
 from .Container import Container
+
 
 class ProcessContainer(Container):
     """
@@ -36,10 +37,10 @@ class ProcessContainer(Container):
 
             container.run()
     """
-    _config_path = './config/config.yaml'
+    _config_path = '../config/config.yml'
     _exit_event = None
 
-    def __init__(self, name = None, description = None):
+    def __init__(self, name=None, description=None):
         """
         Creates a new instance of the container.
 
@@ -89,7 +90,6 @@ class ProcessContainer(Container):
 
         return parameters
 
-
     def _show_help(self):
         args = sys.argv
         index = 0
@@ -100,17 +100,15 @@ class ProcessContainer(Container):
             index += 1
         return False
 
-
     def _print_help(self):
         print("Pip.Services process container - http://www.github.com/pip-services/pip-services")
         print("run [-h] [-c <config file>] [-p <param>=<value>]*")
-
 
     def _capture_errors(self, correlation_id):
         def handle_exception(exc_type, exc_value, exc_traceback):
             self._logger.fatal(correlation_id, exc_value, "Process is terminated")
             self._exit_event.set()
-            #sys.exit(1)
+            # sys.exit(1)
 
         sys.excepthook = handle_exception
 
@@ -120,8 +118,8 @@ class ProcessContainer(Container):
         def sigint_handler(signum, frame):
             self._logger.info(correlation_id, "Goodbye!")
             self._exit_event.set()
-            #sys.exit(1)
-            
+            # sys.exit(1)
+
         signal.signal(signal.SIGINT, sigint_handler)
         signal.signal(signal.SIGTERM, sigint_handler)
 
@@ -131,7 +129,7 @@ class ProcessContainer(Container):
             try:
                 self._exit_event.wait(1)
             except:
-                pass # Do nothing...
+                pass  # Do nothing...
 
     def run(self):
         """

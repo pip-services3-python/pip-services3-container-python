@@ -2,9 +2,9 @@
 """
     pip_services3_container.config.ContainerConfigReader
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Container configuration reader implementation.
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -14,10 +14,12 @@ from pip_services3_components.config import JsonConfigReader
 from pip_services3_components.config import YamlConfigReader
 from .ContainerConfig import ContainerConfig
 
+
 class ContainerConfigReader():
     """
     Helper class that reads container configuration from JSON or YAML file.
     """
+
     @staticmethod
     def read_from_file(correlation_id, path, parameters):
         """
@@ -34,15 +36,15 @@ class ContainerConfigReader():
         """
         if path == None:
             raise ConfigException(correlation_id, "NO_PATH", "Missing config file path")
-        
+
         index = path.rfind('.')
         ext = path[index + 1:].lower() if index > 0 else ''
 
         if ext == "json":
             return ContainerConfigReader.read_from_json_file(correlation_id, path, parameters)
-        elif ext == "yaml":
+        elif ext == "yaml" or ext == "yml":
             return ContainerConfigReader.read_from_yaml_file(correlation_id, path, parameters)
-        
+
         # By default read as JSON
         return ContainerConfigReader.read_from_json_file(correlation_id, path, parameters)
 
