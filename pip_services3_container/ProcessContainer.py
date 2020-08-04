@@ -37,7 +37,7 @@ class ProcessContainer(Container):
 
             container.run()
     """
-    _config_path = '../config/config.yml'
+    _config_path = './config/config.yml'
     _exit_event = None
 
     def __init__(self, name=None, description=None):
