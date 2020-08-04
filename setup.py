@@ -18,7 +18,7 @@ from setuptools import find_packages
  
 setup(
     name='pip_services3_container',
-    version='3.1.0',
+    version='3.1.1',
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
@@ -30,7 +30,7 @@ setup(
     zip_safe=True,
     platforms='any',
     install_requires=[
-        'iso8601', 'PyYAML', 'pip_services3_commons', 'pip_services3_components'
+        'iso8601', 'PyYAML', 'pytest', 'pytz', 'pystache', 'pybars3', 'numpy', 'pip_services3_commons', 'pip_services3_components'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
