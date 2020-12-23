@@ -2,11 +2,10 @@
 /.git
 /.gitignore
 /.dockerignore
-/.pytest_cache
-/doc
-/pip_services3_container.egg-info
+/docs
+/pip_services3_data.egg-info
 /dist
-/Dockerfile*
-/docker-compose*.yml
+/docker/Dockerfile*
+/docker/docker-compose*.yml
 /*.sh
 /*.ps1
