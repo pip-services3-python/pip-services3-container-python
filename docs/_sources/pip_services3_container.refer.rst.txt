@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_container.refer.BuildReferencesDecorator
    pip_services3_container.refer.ContainerReferences
@@ -17,6 +18,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_container.refer
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

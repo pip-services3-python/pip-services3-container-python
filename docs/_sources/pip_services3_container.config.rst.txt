@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_container.config.ComponentConfig
    pip_services3_container.config.ContainerConfig
@@ -14,6 +15,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_container.config
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
