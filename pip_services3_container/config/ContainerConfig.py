@@ -30,12 +30,12 @@ class ContainerConfig(list):
     @staticmethod
     def from_value(value):
         """
-        Creates a new ContainerConfig object filled with key-value pairs from specified object.
-        The value is converted into ConfigParams object which is used to create the object.
+        Creates a new :class:`ContainerConfig` object filled with key-value pairs from specified object.
+        The value is converted into :class:`ConfigParams` object which is used to create the object.
 
-        :param value: an object with key-value pairs used to initialize a new ContainerConfig.
+        :param value: an object with key-value pairs used to initialize a new :class:`ContainerConfig`.
 
-        :return: a new ContainerConfig object.
+        :return: a new :class:`ContainerConfig` object.
         """
         config = ConfigParams.from_value(value)
         return ContainerConfig.from_config(config)
@@ -43,12 +43,12 @@ class ContainerConfig(list):
     @staticmethod
     def from_config(config):
         """
-        Creates a new ContainerConfig object based on configuration parameters.
+        Creates a new :class:`ContainerConfig` object based on configuration parameters.
         Each section in the configuration parameters is converted into a component configuration.
 
-        :param config: an object with key-value pairs used to initialize a new ContainerConfig.
+        :param config: an object with key-value pairs used to initialize a new :class:`ContainerConfig`.
 
-        :return: a new ContainerConfig object.
+        :return: a new :class:`ContainerConfig` object.
         """
         result = ContainerConfig()
         if config == None:

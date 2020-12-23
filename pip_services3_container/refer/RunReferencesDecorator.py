@@ -18,7 +18,7 @@ from .ReferencesDecorator import ReferencesDecorator
 class RunReferencesDecorator(ReferencesDecorator):
     """
     References decorator that automatically opens to newly added components
-    that implement IOpenable interface and closes removed components that implement ICloseable interface.
+    that implement :class:`IOpenable` interface and closes removed components that implement :class:`ICloseable` interface.
     """
     _opened = False
 
@@ -82,7 +82,7 @@ class RunReferencesDecorator(ReferencesDecorator):
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
-        When all references shall be removed, use [[removeAll]] method instead.
+        When all references shall be removed, use :func:`removeAll` method instead.
 
         :param locator: a locator to remove reference
 

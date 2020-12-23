@@ -18,8 +18,8 @@ from .ReferencesDecorator import ReferencesDecorator
 class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
     """
     References decorator that automatically sets references to newly added components
-    that implement IReferenceable interface and unsets references
-    from removed components that implement IUnreferenceable interface.
+    that implement :class:`IReferenceable` interface and unsets references
+    from removed components that implement :class:`IUnreferenceable` interface.
     """
     _opened = False
 
@@ -83,7 +83,7 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
-        When all references shall be removed, use [[removeAll]] method instead.
+        When all references shall be removed, use :func:`removeAll` method instead.
 
         :param locator: a locator to remove reference
 

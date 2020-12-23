@@ -57,13 +57,15 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
     about the container and makes it available for other components.
 
     ### Configuration parameters ###
-
         - name: 					the context (container or process) name
         - description: 		   	human-readable description of the context
         - properties: 			    entire section of additional descriptive properties
         - ...
 
         Example:
+
+        .. code-block:: yaml
+
             ======= config.yaml ========
             - descriptor: mygroup:mycomponent1:default:default:1.0
             param1: 123
@@ -74,6 +76,8 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             param2: XYZ
             ============================
 
+        .. code-block:: python
+
             container = Container()
             container.add_factory(MyComponentFactory())
 
@@ -82,7 +86,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
             container.open("123")
             print "Container is opened"
-            ...
+            # process...
             container.close("123")
             print "Container is closed"
     """

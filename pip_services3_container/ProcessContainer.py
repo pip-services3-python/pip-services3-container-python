@@ -32,6 +32,9 @@ class ProcessContainer(Container):
         - --help -h               prints the container usage help
 
         Example:
+
+        .. code-block:: python
+        
             container = ProcessContainer()
             container.add_factory(MyComponentFactory())
 

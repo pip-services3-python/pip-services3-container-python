@@ -77,7 +77,7 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
     @staticmethod
     def from_tuples(*tuples):
         """
-        Creates a new ManagedReferences object filled with provided key-value pairs called tuples.
+        Creates a new :class:`ManagedReferences` object filled with provided key-value pairs called tuples.
         Tuples parameters contain a sequence of locator1, component1, locator2, component2, ... pairs.
 
         :param tuples: the tuples to fill a new ManagedReferences object.
