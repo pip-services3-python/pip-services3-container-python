@@ -1,7 +1,0 @@
-pip\_services3\_container.Container module
-==========================================
-
-.. automodule:: pip_services3_container.Container
-    :members:
-    :undoc-members:
-    :show-inheritance:
