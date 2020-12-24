@@ -206,16 +206,16 @@
 functional container (we can just only create a class that will set various references).</p>
 <p>Once the objects of a container are configured, if they implement the IReferencable interface,
 they are passed a set of references for recreating links between objects in the container.
-If objects implement the IOpenable interface, the &lt;code&gt;open()&lt;/code&gt; method is called and they start to work.
+If objects implement the IOpenable interface, the <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code> method is called and they start to work.
 Connections to various services are made, after which the objects start,
 the container starts running, and the objects carry out their tasks. When the container starts to close,
 the objects that implement the ICloseable interface are closed via their
-&lt;code&gt;close()&lt;/code&gt; method (which should make them stop working and disconnect from other services),
+<code class="xref py py-func docutils literal notranslate"><span class="pre">close()</span></code> method (which should make them stop working and disconnect from other services),
 after which objects that implement the IUnreferencable interface delete various links between objects,
 and, finally, the contains destroys all objects and turns off.</p>
-<p>[[BuildReferencesDecorator Build]], [[LinkReferencesDecorator Link]], and
-[[RunReferencesDecorator Run]] - ReferenceDecorators are used during the corresponding building, linking,
-and running stages and are united in [[ManagedReferences]], which are extended by [[ContainerReferences]].</p>
+<p><a class="reference internal" href="pip_services3_container.refer.BuildReferencesDecorator.html#module-pip_services3_container.refer.BuildReferencesDecorator" title="pip_services3_container.refer.BuildReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BuildReferencesDecorator</span></code></a>, <a class="reference internal" href="pip_services3_container.refer.LinkReferencesDecorator.html#module-pip_services3_container.refer.LinkReferencesDecorator" title="pip_services3_container.refer.LinkReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinkReferencesDecorator</span></code></a>, and
+<a class="reference internal" href="pip_services3_container.refer.RunReferencesDecorator.html#module-pip_services3_container.refer.RunReferencesDecorator" title="pip_services3_container.refer.RunReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">RunReferencesDecorator</span></code></a> - ReferenceDecorators are used during the corresponding building, linking,
+and running stages and are united in <a class="reference internal" href="pip_services3_container.refer.ManagedReferences.html#module-pip_services3_container.refer.ManagedReferences" title="pip_services3_container.refer.ManagedReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManagedReferences</span></code></a>, which are extended by <a class="reference internal" href="pip_services3_container.refer.ContainerReferences.html#module-pip_services3_container.refer.ContainerReferences" title="pip_services3_container.refer.ContainerReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerReferences</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">copyright</dt>
 <dd class="field-odd"><p>Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</p>

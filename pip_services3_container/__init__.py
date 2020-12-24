@@ -25,11 +25,11 @@
     objects and, if they implement the IConfigurable interface, passes them their configurations.
     Once the objects of a container are configured, if they implement the IReferencable interface,
     they are passed a set of references for recreating links between objects in the container.
-    If objects implement the IOpenable interface, the <code>open()</code> method is called and they
+    If objects implement the IOpenable interface, the :func:`open()` method is called and they
     start to work. Connections to various services are made, after which the objects start, the
     container starts running, and the objects carry out their tasks. When the container
     starts to close, the objects that implement the ICloseable interface are closed via their
-    <code>close()</code> method (which should make them stop working and disconnect from other services),
+    :func:`close()` method (which should make them stop working and disconnect from other services),
     after which objects that implement the IUnreferencable interface delete various links between
     objects, and, finally, the contains destroys all objects and turns off.
     
