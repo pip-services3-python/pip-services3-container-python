@@ -3,7 +3,7 @@
 /.gitignore
 /.dockerignore
 /docs
-/pip_services3_data.egg-info
+/pip_services3_container.egg-info
 /dist
 /docker/Dockerfile*
 /docker/docker-compose*.yml
