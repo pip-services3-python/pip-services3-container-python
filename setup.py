@@ -18,7 +18,7 @@ from setuptools import find_packages
  
 setup(
     name='pip_services3_container',
-    version='3.1.4',
+    version='3.1.5',
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
