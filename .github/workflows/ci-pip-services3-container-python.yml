@@ -22,7 +22,7 @@ jobs:
     ############# Test #############
 
     - name: Test the component
-      uses: pip-devops/actions/dotnepythont/test@v1
+      uses: pip-devops/actions/python/test@v1
 
     ############# Release #############
 
