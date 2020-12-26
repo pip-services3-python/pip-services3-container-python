@@ -31,4 +31,4 @@ password = $($env:PYPI_PASS)
 # Release package
 Write-Host "Pushing package to pipy"
 python setup.py sdist
-twine upload --skip-existing dist/*
+python -m twine upload --skip-existing dist/*
