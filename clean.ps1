@@ -25,8 +25,8 @@ docker volume rm -f $(docker volume ls -f "dangling=true")
 # remove cash and temp files 
 Remove-Item -Recurse -Force .cache
 Remove-Item -Recurse -Force dist
-Remove-Item -Recurse -Force pip_services3_container.egg-info
-Remove-Item -Force pip_services3_container/*.pyc
-Remove-Item -Force pip_services3_container/**/*.pyc
+Remove-Item -Recurse -Force "$($component.name).egg-info"
+Remove-Item -Force "$($component.name)/*.pyc"
+Remove-Item -Force "$($component.name)/**/*.pyc"
 Remove-Item -Recurse -Force test/__pycache__
 Remove-Item -Recurse -Force test/**/__pycache__
