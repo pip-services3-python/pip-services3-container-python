@@ -32,3 +32,7 @@ password = $($env:PYPI_PASS)
 Write-Host "Pushing package to pipy"
 python setup.py sdist
 python -m twine upload --skip-existing dist/*
+
+if ($LastExitCode -ne 0) {
+    Write-Error "Release failed. Watch logs above."
+}
