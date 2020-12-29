@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -289,7 +290,7 @@ Objects can be defined in two ways:</p>
 objects and, if they implement the IConfigurable interface, passes them their configurations.
 Once the objects of a container are configured, if they implement the IReferencable interface,
 they are passed a set of references for recreating links between objects in the container.
-If objects implement the IOpenable interface, the <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code> method is called and they
+If objects implement the IOpenable interface, the <a class="reference external" href="http://docs.python.org/3/library/functions.html#open" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> method is called and they
 start to work. Connections to various services are made, after which the objects start, the
 container starts running, and the objects carry out their tasks. When the container
 starts to close, the objects that implement the ICloseable interface are closed via their
@@ -307,7 +308,7 @@ objects, and, finally, the contains destroys all objects and turns off.</p>
 <dl class="py class">
 <dt id="pip_services3_container.Container">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.</code><code class="sig-name descname">Container</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">description</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.Container" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IConfigurable.IConfigurable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferenceable.IReferenceable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IUnreferenceable.IUnreferenceable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IOpenable.IOpenable</span></code></p>
+<dd><p>Bases: <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.IConfigurable.html#pip_services3_commons.config.IConfigurable.IConfigurable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IConfigurable.IConfigurable</span></code></a>, <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferenceable.IReferenceable</span></code></a>, <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IUnreferenceable.IUnreferenceable</span></code></a>, <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IOpenable.IOpenable</span></code></a></p>
 <p>Inversion of control (IoC) container that creates components and manages their lifecycle.</p>
 <p>The container is driven by configuration, that usually stored in JSON or YAML file.
 The configuration contains a list of components identified by type or locator, followed by component configuration.</p>

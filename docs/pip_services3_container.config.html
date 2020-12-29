@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -214,7 +215,7 @@ objects and, if they implement the IConfigurable interface, passes them their co
 <dl class="py class">
 <dt id="pip_services3_container.config.ComponentConfig">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.config.</code><code class="sig-name descname">ComponentConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.config.ComponentConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Configuration of a component inside a container.</p>
 <p>The configuration includes type information or descriptor, and component configuration parameters.</p>
 <dl class="py attribute">
@@ -251,19 +252,19 @@ objects and, if they implement the IConfigurable interface, passes them their co
 <dl class="py class">
 <dt id="pip_services3_container.config.ContainerConfig">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.config.</code><code class="sig-name descname">ContainerConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.config.ContainerConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
 <p>Container configuration defined as a list of component configurations.</p>
 <dl class="py method">
 <dt id="pip_services3_container.config.ContainerConfig.from_config">
 <em class="property">static </em><code class="sig-name descname">from_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.config.ContainerConfig.from_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object based on configuration parameters.
+<dd><p>Creates a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object based on configuration parameters.
 Each section in the configuration parameters is converted into a component configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>config</strong> – an object with key-value pairs used to initialize a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a>.</p>
+<dd class="field-odd"><p><strong>config</strong> – an object with key-value pairs used to initialize a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object.</p>
+<dd class="field-even"><p>a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -271,14 +272,14 @@ Each section in the configuration parameters is converted into a component confi
 <dl class="py method">
 <dt id="pip_services3_container.config.ContainerConfig.from_value">
 <em class="property">static </em><code class="sig-name descname">from_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.config.ContainerConfig.from_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object filled with key-value pairs from specified object.
-The value is converted into <code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigParams</span></code> object which is used to create the object.</p>
+<dd><p>Creates a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object filled with key-value pairs from specified object.
+The value is converted into <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.ConfigParams.html#pip_services3_commons.config.ConfigParams.ConfigParams" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigParams</span></code></a> object which is used to create the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – an object with key-value pairs used to initialize a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a>.</p>
+<dd class="field-odd"><p><strong>value</strong> – an object with key-value pairs used to initialize a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#module-pip_services3_container.config.ContainerConfig" title="pip_services3_container.config.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object.</p>
+<dd class="field-even"><p>a new <a class="reference internal" href="pip_services3_container.config.ContainerConfig.html#pip_services3_container.config.ContainerConfig.ContainerConfig" title="pip_services3_container.config.ContainerConfig.ContainerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerConfig</span></code></a> object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -288,7 +289,7 @@ The value is converted into <code class="xref py py-class docutils literal notra
 <dl class="py class">
 <dt id="pip_services3_container.config.ContainerConfigReader">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.config.</code><code class="sig-name descname">ContainerConfigReader</code><a class="headerlink" href="#pip_services3_container.config.ContainerConfigReader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Helper class that reads container configuration from JSON or YAML file.</p>
 <dl class="py method">
 <dt id="pip_services3_container.config.ContainerConfigReader.read_from_file">

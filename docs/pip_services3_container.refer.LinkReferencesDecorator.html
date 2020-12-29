@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -183,10 +184,10 @@
 <dl class="py class">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.refer.LinkReferencesDecorator.</code><code class="sig-name descname">LinkReferencesDecorator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">base_references</span></em>, <em class="sig-param"><span class="n">parent_references</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pip_services3_container.refer.ReferencesDecorator.html#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator" title="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IOpenable.IOpenable</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_container.refer.ReferencesDecorator.html#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator" title="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator</span></code></a>, <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IOpenable.IOpenable</span></code></a></p>
 <p>References decorator that automatically sets references to newly added components
-that implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code> interface and unsets references
-from removed components that implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code> interface.</p>
+that implement <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface and unsets references
+from removed components that implement <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
 <dl class="py method">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.close">
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.close" title="Permalink to this definition">¶</a></dt>
@@ -239,7 +240,7 @@ from removed components that implement <code class="xref py py-class docutils li
 <code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use <code class="xref py py-func docutils literal notranslate"><span class="pre">removeAll()</span></code> method instead.</p>
+When all references shall be removed, use <a class="reference internal" href="pip_services3_container.refer.html#pip_services3_container.refer.LinkReferencesDecorator.remove_all" title="pip_services3_container.refer.LinkReferencesDecorator.remove_all"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_all()</span></code></a> method instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>locator</strong> – a locator to remove reference</p>

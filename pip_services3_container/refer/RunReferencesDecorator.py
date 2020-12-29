@@ -18,7 +18,7 @@ from .ReferencesDecorator import ReferencesDecorator
 class RunReferencesDecorator(ReferencesDecorator):
     """
     References decorator that automatically opens to newly added components
-    that implement :class:`IOpenable` interface and closes removed components that implement :class:`ICloseable` interface.
+    that implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface and closes removed components that implement :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface.
     """
     _opened = False
 

@@ -13,7 +13,7 @@ from pip_services3_commons.refer import IReferences
 
 class ReferencesDecorator(IReferences):
     """
-    Chainable decorator for :class:`IReferences` that allows to inject additional capabilities
+    Chainable decorator for :class:`IReferences <pip_services3_commons.refer.IReferences>` that allows to inject additional capabilities
     such as automatic component creation, automatic registration and opening.
     """
     base_references = None
@@ -45,7 +45,7 @@ class ReferencesDecorator(IReferences):
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
-        When all references shall be removed, use :func:`removeAll` method instead.
+        When all references shall be removed, use :func:`remove_all` method instead.
 
         :param locator: a locator to remove reference
 
@@ -101,7 +101,7 @@ class ReferencesDecorator(IReferences):
 
         :return: a matching component reference.
 
-        :raises: a :class:`ReferenceException` when no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when no references found.
         """
         components = self.find(locator, True)
         return components[0] if len(components) > 0 else None
@@ -128,7 +128,7 @@ class ReferencesDecorator(IReferences):
 
         :return: a list with matching component references.
 
-        :raises: a :class:`ReferenceException` when no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when no references found.
         """
         return self.find(locator, True)
 
@@ -142,6 +142,6 @@ class ReferencesDecorator(IReferences):
 
         :return: a list with matching component references.
 
-        :raises: a :class:`ReferenceException` when required is set to true but no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when required is set to true but no references found.
         """
         return self.base_references.find(locator, required)

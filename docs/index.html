@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -197,7 +198,7 @@ Objects can be defined in two ways:</p>
 objects and, if they implement the IConfigurable interface, passes them their configurations.
 Once the objects of a container are configured, if they implement the IReferencable interface,
 they are passed a set of references for recreating links between objects in the container.
-If objects implement the IOpenable interface, the <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code> method is called and they
+If objects implement the IOpenable interface, the <a class="reference external" href="http://docs.python.org/3/library/functions.html#open" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> method is called and they
 start to work. Connections to various services are made, after which the objects start, the
 container starts running, and the objects carry out their tasks. When the container
 starts to close, the objects that implement the ICloseable interface are closed via their
