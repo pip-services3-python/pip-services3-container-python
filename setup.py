@@ -23,7 +23,7 @@ except:
  
 setup(
     name='pip_services3_container',
-    version='3.1.6',
+    version='3.1.7',
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',

@@ -71,8 +71,8 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
-        self._runner.open(correlation_id)
-        self._linker.open(correlation_id)
+        self._runner.close(correlation_id)
+        self._linker.close(correlation_id)
 
     @staticmethod
     def from_tuples(*tuples):
