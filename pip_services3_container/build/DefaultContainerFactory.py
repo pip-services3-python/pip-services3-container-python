@@ -17,7 +17,7 @@ from pip_services3_components.config import DefaultConfigReaderFactory
 from pip_services3_components.cache import DefaultCacheFactory
 from pip_services3_components.auth import DefaultCredentialStoreFactory
 from pip_services3_components.connect import DefaultDiscoveryFactory
-from pip_services3_components.info._DefaultInfoFactory import DefaultInfoFactory
+from pip_services3_components.info.DefaultInfoFactory import DefaultInfoFactory
 
 class DefaultContainerFactory(CompositeFactory):
     """

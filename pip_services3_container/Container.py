@@ -12,7 +12,7 @@
 import traceback
 
 from pip_services3_commons.config import IConfigurable
-from pip_services3_components.info import _DefaultInfoFactory
+from pip_services3_components.info import DefaultInfoFactory
 from pip_services3_components.log import NullLogger
 from pip_services3_components.log import CompositeLogger
 from pip_services3_commons.errors import InvalidStateException
@@ -26,7 +26,7 @@ from pip_services3_commons.run import Closer
 
 from .build.DefaultContainerFactory import DefaultContainerFactory
 from pip_services3_components.info.ContextInfo import ContextInfo
-from pip_services3_components.info._DefaultInfoFactory import DefaultInfoFactory
+from pip_services3_components.info.DefaultInfoFactory import DefaultInfoFactory
 from .config.ContainerConfigReader import ContainerConfigReader
 from .refer.ContainerReferences import ContainerReferences
 from .config.ContainerConfig import ContainerConfig
@@ -145,9 +145,9 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
     def _init_references(self, references):
         # Override in base classes
-        existingInfo = references.get_one_optional(_DefaultInfoFactory.ContextInfoDescriptor)
+        existingInfo = references.get_one_optional(DefaultInfoFactory.ContextInfoDescriptor)
         if existingInfo is None:
-            references.put(_DefaultInfoFactory.ContextInfoDescriptor, self._info)
+            references.put(DefaultInfoFactory.ContextInfoDescriptor, self._info)
         else:
             self._info = existingInfo
         references.put(DefaultContainerFactory.DefaultContainerFactoryDescriptor, self._factories)

@@ -15,16 +15,22 @@ Links
 
 from setuptools import setup
 from setuptools import find_packages
+
+try:
+    readme = open('readme.md').read()
+except:
+    readme = __doc__
  
 setup(
     name='pip_services3_container',
-    version='3.1.5',
+    version='3.1.6',
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
     author_email='seroukhov@gmail.com',
     description='IoC container for Pip.Services in Python',
-    long_description=__doc__,
+    long_description=readme,
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=['config', 'data', 'examples', 'test']),
     include_package_data=True,
     zip_safe=True,
