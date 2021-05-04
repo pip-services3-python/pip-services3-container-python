@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>pip_services3_container.refer.ManagedReferences module &mdash; pip-services3-container  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -51,7 +54,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pip-services3-container
+            <a href="index.html" class="icon icon-home"> pip-services3-container
           
 
           
@@ -137,6 +140,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -154,7 +159,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/pip_services3_container.refer.ManagedReferences.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -183,7 +188,7 @@
 </dl>
 <dl class="py class">
 <dt id="pip_services3_container.refer.ManagedReferences.ManagedReferences">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.refer.ManagedReferences.</code><code class="sig-name descname">ManagedReferences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuples</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_container.refer.ManagedReferences.</code><code class="sig-name descname">ManagedReferences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuples</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_container.refer.ReferencesDecorator.html#pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator" title="pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_container.refer.ReferencesDecorator.ReferencesDecorator</span></code></a>, <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IOpenable.IOpenable</span></code></a></p>
 <dl class="simple">
 <dt>Managed references that in addition to keeping and locating references can also manage their lifecycle:</dt><dd><ul class="simple">
@@ -196,7 +201,7 @@
 </dl>
 <dl class="py method">
 <dt id="pip_services3_container.refer.ManagedReferences.ManagedReferences.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes component and frees used resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -207,7 +212,7 @@
 
 <dl class="py method">
 <dt id="pip_services3_container.refer.ManagedReferences.ManagedReferences.from_tuples">
-<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.from_tuples" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; &lt;module ‘pip_services3_container.refer.ManagedReferences’ from ‘/pip_services3_container/refer/ManagedReferences.py’&gt;<a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.from_tuples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new <a class="reference internal" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences" title="pip_services3_container.refer.ManagedReferences.ManagedReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManagedReferences</span></code></a> object filled with provided key-value pairs called tuples.
 Tuples parameters contain a sequence of locator1, component1, locator2, component2, … pairs.</p>
 <dl class="field-list simple">
@@ -222,7 +227,7 @@ Tuples parameters contain a sequence of locator1, component1, locator2, componen
 
 <dl class="py method">
 <dt id="pip_services3_container.refer.ManagedReferences.ManagedReferences.is_open">
-<code class="sig-name descname">is_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.is_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.is_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the component is opened.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -233,7 +238,7 @@ Tuples parameters contain a sequence of locator1, component1, locator2, componen
 
 <dl class="py method">
 <dt id="pip_services3_container.refer.ManagedReferences.ManagedReferences.open">
-<code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.ManagedReferences.ManagedReferences.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens the component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -252,37 +257,29 @@ Tuples parameters contain a sequence of locator1, component1, locator2, componen
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pip_services3_container.refer.ReferencesDecorator.html" class="btn btn-neutral float-right" title="pip_services3_container.refer.ReferencesDecorator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pip_services3_container.refer.LinkReferencesDecorator.html" class="btn btn-neutral float-left" title="pip_services3_container.refer.LinkReferencesDecorator module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pip_services3_container.refer.ReferencesDecorator.html" class="btn btn-neutral float-right" title="pip_services3_container.refer.ReferencesDecorator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pip_services3_container.refer.LinkReferencesDecorator.html" class="btn btn-neutral float-left" title="pip_services3_container.refer.LinkReferencesDecorator module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Sergey Seroukhov
+        &#169; Copyright 2020, Sergey Seroukhov.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
