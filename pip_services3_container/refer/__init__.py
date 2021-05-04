@@ -13,7 +13,7 @@
     the container starts running, and the objects carry out their tasks. When the container starts to close,
     the objects that implement the ICloseable interface are closed via their
     :func:`close()` method (which should make them stop working and disconnect from other services),
-    after which objects that implement the IUnreferencable interface delete various links between objects,
+    after which objects that implement the IUnreferenceable interface delete various links between objects,
     and, finally, the contains destroys all objects and turns off.
 
     :class:`BuildReferencesDecorator`, :class:`LinkReferencesDecorator`, and
@@ -24,12 +24,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-__all__ = [ 'ReferencesDecorator', 'RunReferencesDecorator', 'LinkReferencesDecorator',
-    'BuildReferencesDecorator', 'ManagedReferences', 'ContainerReferences' ]
+__all__ = ['ReferencesDecorator', 'RunReferencesDecorator', 'LinkReferencesDecorator',
+           'BuildReferencesDecorator', 'ManagedReferences', 'ContainerReferences']
 
+from .BuildReferencesDecorator import BuildReferencesDecorator
+from .ContainerReferences import ContainerReferences
+from .LinkReferencesDecorator import LinkReferencesDecorator
+from .ManagedReferences import ManagedReferences
 from .ReferencesDecorator import ReferencesDecorator
 from .RunReferencesDecorator import RunReferencesDecorator
-from .LinkReferencesDecorator import LinkReferencesDecorator
-from .BuildReferencesDecorator import BuildReferencesDecorator
-from .ManagedReferences import ManagedReferences
-from .ContainerReferences import ContainerReferences

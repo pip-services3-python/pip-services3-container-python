@@ -195,7 +195,7 @@ that implement <a class="reference external" href="https://pip-services3-python.
 from removed components that implement <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="(in pip-services3-commons)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
 <dl class="py method">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes component and frees used resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -217,7 +217,7 @@ from removed components that implement <a class="reference external" href="https
 
 <dl class="py method">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.open">
-<code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens the component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -229,12 +229,12 @@ from removed components that implement <a class="reference external" href="https
 <dl class="py method">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.put">
 <code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Puts a new reference into this reference map.</p>
+<dd><p>Puts a new component into this component map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>locator</strong> – a locator to find the reference by.</p></li>
-<li><p><strong>component</strong> – a component reference to be added.</p></li>
+<li><p><strong>locator</strong> – a locator to find the component by.</p></li>
+<li><p><strong>component</strong> – a component component to be added.</p></li>
 </ul>
 </dd>
 </dl>
@@ -243,15 +243,15 @@ from removed components that implement <a class="reference external" href="https
 <dl class="py method">
 <dt id="pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.remove">
 <code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_container.refer.LinkReferencesDecorator.LinkReferencesDecorator.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes a previously added reference that matches specified locator.
+<dd><p>Removes a previously added component that matches specified locator.
 If many references match the locator, it removes only the first one.
 When all references shall be removed, use <a class="reference internal" href="pip_services3_container.refer.html#pip_services3_container.refer.LinkReferencesDecorator.remove_all" title="pip_services3_container.refer.LinkReferencesDecorator.remove_all"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_all()</span></code></a> method instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>locator</strong> – a locator to remove reference</p>
+<dd class="field-odd"><p><strong>locator</strong> – a locator to remove component</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the removed component reference.</p>
+<dd class="field-even"><p>the removed component component.</p>
 </dd>
 </dl>
 </dd></dl>

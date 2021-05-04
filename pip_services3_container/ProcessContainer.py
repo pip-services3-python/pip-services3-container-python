@@ -13,6 +13,7 @@ import os
 import signal
 import sys
 import threading
+from typing import Optional
 
 from pip_services3_commons.config import ConfigParams
 from pip_services3_components.log import ConsoleLogger
@@ -108,7 +109,7 @@ class ProcessContainer(Container):
         print("Pip.Services process container - http://www.pipservices.org")
         print("run [-h] [-c <config file>] [-p <param>=<value>]*")
 
-    def __capture_errors(self, correlation_id: str):
+    def __capture_errors(self, correlation_id: Optional[str]):
         def handle_exception(exc_type, exc_value, exc_traceback):
             self._logger.fatal(correlation_id, exc_value, "Process is terminated")
             self.__exit_event.set()
@@ -116,7 +117,7 @@ class ProcessContainer(Container):
 
         sys.excepthook = handle_exception
 
-    def __capture_exit(self, correlation_id: str):
+    def __capture_exit(self, correlation_id: Optional[str]):
         self._logger.info(correlation_id, "Press Control-C to stop the microservice...")
 
         def sigint_handler(signum, frame):

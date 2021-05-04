@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List
+from typing import Any, List, Optional
 
 from pip_services3_commons.refer import IReferences
 from pip_services3_commons.refer import Referencer
@@ -43,7 +43,7 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
         """
         return self.__opened
 
-    def open(self, correlation_id: str):
+    def open(self, correlation_id: Optional[str]):
         """
         Opens the component.
 
@@ -54,7 +54,7 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
             Referencer.set_references(self.parent_references, components)
             self.__opened = True
 
-    def close(self, correlation_id: str):
+    def close(self, correlation_id: Optional[str]):
         """
         Closes component and frees used resources.
 

@@ -8,11 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List, TypeVar, Optional
+from typing import Any, List, Optional
 
 from pip_services3_commons.refer import IReferences
-
-T = TypeVar('T')  # Declare type variable
 
 
 class ReferencesDecorator(IReferences):
@@ -84,7 +82,7 @@ class ReferencesDecorator(IReferences):
         """
         return self.base_references.get_all()
 
-    def get_one_optional(self, locator: Any) -> T:
+    def get_one_optional(self, locator: Any) -> Any:
         """
         Gets an optional component component that matches specified locator.
 
@@ -98,7 +96,7 @@ class ReferencesDecorator(IReferences):
         except Exception as ex:
             return None
 
-    def get_one_required(self, locator: Any) -> T:
+    def get_one_required(self, locator: Any) -> Any:
         """
         Gets a required component component that matches specified locator.
 
@@ -111,7 +109,7 @@ class ReferencesDecorator(IReferences):
         components = self.find(locator, True)
         return components[0] if len(components) > 0 else None
 
-    def get_optional(self, locator: Any) -> List[T]:
+    def get_optional(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
 
@@ -124,7 +122,7 @@ class ReferencesDecorator(IReferences):
         except Exception as ex:
             return []
 
-    def get_required(self, locator: Any) -> List[T]:
+    def get_required(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
         At least one component component must be present. If it doesn't the method throws an error.
@@ -137,7 +135,7 @@ class ReferencesDecorator(IReferences):
         """
         return self.find(locator, True)
 
-    def find(self, locator: Any, required: bool) -> List[T]:
+    def find(self, locator: Any, required: bool) -> List[Any]:
         """
         Gets all component references that match specified locator.
 

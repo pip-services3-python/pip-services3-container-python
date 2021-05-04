@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, Optional, List, TypeVar
+from typing import Any, Optional, List
 
 from pip_services3_commons.refer import Descriptor
 from pip_services3_commons.refer import IReferences
@@ -16,8 +16,6 @@ from pip_services3_commons.refer import ReferenceException
 from pip_services3_components.build import IFactory
 
 from .ReferencesDecorator import ReferencesDecorator
-
-T = TypeVar('T')  # Declare type variable
 
 
 class BuildReferencesDecorator(ReferencesDecorator):
@@ -62,7 +60,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
 
         :return: the created component.
         """
-        if factory == None:
+        if factory is None:
             return None
 
         try:
@@ -104,7 +102,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
             descriptor.get_version() if descriptor.get_version() != None else another_descriptor.get_version()
         )
 
-    def find(self, locator: Any, required: bool) -> List[T]:
+    def find(self, locator: Any, required: bool) -> List[Any]:
         """
         Gets all component references that match specified locator.
 

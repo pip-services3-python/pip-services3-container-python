@@ -8,6 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional
+
 from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.errors import ConfigException
 from pip_services3_components.config import JsonConfigReader
@@ -22,7 +24,7 @@ class ContainerConfigReader:
     """
 
     @staticmethod
-    def read_from_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
+    def read_from_file(correlation_id: Optional[str], path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from JSON or YAML file.
         The type of the file is determined by file extension.
@@ -50,7 +52,7 @@ class ContainerConfigReader:
         return ContainerConfigReader.read_from_json_file(correlation_id, path, parameters)
 
     @staticmethod
-    def read_from_json_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
+    def read_from_json_file(correlation_id: Optional[str], path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from JSON file.
 
@@ -66,7 +68,7 @@ class ContainerConfigReader:
         return ContainerConfig.from_config(config)
 
     @staticmethod
-    def read_from_yaml_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
+    def read_from_yaml_file(correlation_id: Optional[str], path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from YAML file.
 

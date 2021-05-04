@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Sequence, Any
+from typing import Sequence, Any, Optional
 
 from pip_services3_commons.refer import References
 from pip_services3_commons.run import IOpenable
@@ -51,7 +51,7 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         """
         return self._linker.is_open() and self._runner.is_open()
 
-    def open(self, correlation_id: str):
+    def open(self, correlation_id: Optional[str]):
         """
         Opens the component.
 
@@ -60,7 +60,7 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         self._linker.open(correlation_id)
         self._runner.open(correlation_id)
 
-    def close(self, correlation_id: str):
+    def close(self, correlation_id: Optional[str]):
         """
         Closes component and frees used resources.
 

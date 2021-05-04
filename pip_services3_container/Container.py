@@ -10,6 +10,7 @@
 """
 
 import traceback
+from typing import Optional
 
 from pip_services3_commons.config import IConfigurable, ConfigParams
 from pip_services3_commons.errors import InvalidStateException
@@ -111,7 +112,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         self._config = ContainerConfig.from_config(config)
 
-    def read_config_from_file(self, correlation_id: str, path: str, parameters: ConfigParams):
+    def read_config_from_file(self, correlation_id: Optional[str], path: str, parameters: ConfigParams):
         """
         Reads container configuration from JSON or YAML file and parameterizes it with given values.
 
@@ -138,7 +139,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         pass
 
-    def __init_references(self, references:IReferences):
+    def __init_references(self, references: IReferences):
         # Override in base classes
         existingInfo = references.get_one_optional(DefaultInfoFactory.ContextInfoDescriptor)
         if existingInfo is None:
@@ -164,7 +165,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         return self._references is not None
 
-    def open(self, correlation_id: str):
+    def open(self, correlation_id: Optional[str]):
         """
         Opens the component.
 
@@ -197,7 +198,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             traceback.print_exc()
             raise ex
 
-    def close(self, correlation_id: str):
+    def close(self, correlation_id: Optional[str]):
         """
         Closes component and frees used resources.
 
