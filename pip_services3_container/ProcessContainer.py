@@ -56,22 +56,22 @@ class ProcessContainer(Container):
         self._logger = ConsoleLogger()
         self.__exit_event = threading.Event()
 
-    def __get_config_path(self, *args: str) -> str:
-        args = args if len(args) > 0 else sys.argv
+    def __get_config_path(self) -> str:
+        args = sys.argv
         index = 0
         while index < len(args):
             arg = args[index]
             next_arg = args[index + 1] if index < len(args) - 1 else None
-            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg
-            if next_arg != None:
+            next_arg = None if next_arg is not None and next_arg.startswith('-') else next_arg
+            if next_arg is not None:
                 if arg == "--config" or arg == "-c":
                     return next_arg
             index += 1
         return self._config_path
 
-    def __get_parameters(self, *args: str) -> ConfigParams:
+    def __get_parameters(self) -> ConfigParams:
         # Process command line parameters
-        args = args if len(args) > 0 else sys.argv
+        args = sys.argv
         line = ''
         index = 0
         while index < len(args):
@@ -94,8 +94,8 @@ class ProcessContainer(Container):
 
         return parameters
 
-    def __show_help(self, *args: str) -> bool:
-        args = args if len(args) > 0 else sys.argv
+    def __show_help(self) -> bool:
+        args = sys.argv
         index = 0
         while index < len(args):
             arg = args[index]
@@ -135,20 +135,20 @@ class ProcessContainer(Container):
             except:
                 pass  # Do nothing...
 
-    def run(self, *args: str):
+    def run(self):
         """
         Runs the container by instantiating and running components inside the container.
 
         It reads the container configuration, creates, configures, references and opens components.
         On process exit it closes, unreferences and destroys components to gracefully shutdown.
         """
-        if self.__show_help(*args):
+        if self.__show_help():
             self.__print_help()
             return
 
         correlation_id = self._info.name
-        path = self.__get_config_path(*args)
-        parameters = self.__get_parameters(*args)
+        path = self.__get_config_path()
+        parameters = self.__get_parameters()
         self.read_config_from_file(correlation_id, path, parameters)
 
         self.__capture_errors(correlation_id)

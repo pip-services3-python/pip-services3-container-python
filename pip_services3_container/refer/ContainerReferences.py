@@ -24,9 +24,6 @@ class ContainerReferences(ManagedReferences):
     Container managed references that can be created from container configuration.
     """
 
-    def __init__(self):
-        super(ContainerReferences, self).__init__()
-
     def put_from_config(self, config: ContainerConfig):
         """
         Puts components into the references from container configuration.

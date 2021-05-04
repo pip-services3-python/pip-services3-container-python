@@ -147,7 +147,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             self._info = existingInfo
         references.put(Descriptor("pip-services", "factory", "container", "default", "1.0"), self._factories)
 
-    def add_factories(self, factory: IFactory):
+    def add_factory(self, factory: IFactory):
         """
         Adds a factory to the container. The factory is used to create components
         added to the container by their locators (descriptors).
@@ -189,7 +189,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             # Reference and open components
             self._references.open(correlation_id)
 
-            # Get reference to logger
+            # Get component to logger
             self._logger = CompositeLogger(self._references)
             self._logger.info(correlation_id, "Container " + self._info.name + " started.")
         except Exception as ex:

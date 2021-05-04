@@ -108,9 +108,9 @@ class BuildReferencesDecorator(ReferencesDecorator):
         """
         Gets all component references that match specified locator.
 
-        :param locator: the locator to find a reference by.
+        :param locator: the locator to find a component by.
 
-        :param required: forces to raise an exception if no reference is found.
+        :param required: forces to raise an exception if no component is found.
 
         :return: a list with matching component references.
         """

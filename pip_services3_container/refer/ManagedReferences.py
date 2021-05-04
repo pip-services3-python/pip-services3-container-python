@@ -12,7 +12,6 @@ from typing import Sequence, Any
 
 from pip_services3_commons.refer import References
 from pip_services3_commons.run import IOpenable
-from pip_services3_container.refer import ManagedReferences
 
 from .BuildReferencesDecorator import BuildReferencesDecorator
 from .LinkReferencesDecorator import LinkReferencesDecorator
@@ -71,9 +70,9 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         self._linker.close(correlation_id)
 
     @staticmethod
-    def from_tuples(*tuples: Any) -> ManagedReferences:
+    def from_tuples(*tuples: Any) -> 'ManagedReferences':
         """
-        Creates a new :class:`ManagedReferences <pip_services3_container.refer.ManagedReferences.ManagedReferences>` object filled with provided key-value pairs called tuples.
+        Creates a new ManagedReferences object filled with provided key-value pairs called tuples.
         Tuples parameters contain a sequence of locator1, component1, locator2, component2, ... pairs.
 
         :param tuples: the tuples to fill a new ManagedReferences object.

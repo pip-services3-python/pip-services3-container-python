@@ -37,25 +37,24 @@ class ReferencesDecorator(IReferences):
         # The decorator at the top of the chain.
         self.parent_references: IReferences = top_references if top_references is not None else next_references
 
-    def put(self, locator: Any = None, reference: Any = None) -> Any:
+    def put(self, locator: Any = None, component: Any = None):
         """
         Puts a new reference into this reference map.
 
         :param locator: a locator to find the reference by.
-
         :param component: a component reference to be added.
         """
-        self.base_references.put(locator, reference)
+        self.base_references.put(locator, component)
 
     def remove(self, locator: Any) -> Any:
         """
-        Removes a previously added reference that matches specified locator.
+        Removes a previously added component that matches specified locator.
         If many references match the locator, it removes only the first one.
         When all references shall be removed, use :func:`remove_all` method instead.
 
-        :param locator: a locator to remove reference
+        :param locator: a locator to remove component
 
-        :return: the removed component reference.
+        :return: the removed component component.
         """
         return self.base_references.remove(locator)
 
@@ -71,7 +70,7 @@ class ReferencesDecorator(IReferences):
 
     def get_all_locators(self) -> List[Any]:
         """
-        Gets locators for all registered component references in this reference map.
+        Gets locators for all registered component references in this component map.
 
         :return: a list with component locators.
         """
@@ -79,7 +78,7 @@ class ReferencesDecorator(IReferences):
 
     def get_all(self) -> List[Any]:
         """
-        Gets all component references registered in this reference map.
+        Gets all component references registered in this component map.
 
         :return: a list with component references.
         """
@@ -87,11 +86,11 @@ class ReferencesDecorator(IReferences):
 
     def get_one_optional(self, locator: Any) -> T:
         """
-        Gets an optional component reference that matches specified locator.
+        Gets an optional component component that matches specified locator.
 
         :param locator: the locator to find references by.
 
-        :return: a matching component reference or null if nothing was found.
+        :return: a matching component component or null if nothing was found.
         """
         try:
             components = self.find(locator, False)
@@ -101,11 +100,11 @@ class ReferencesDecorator(IReferences):
 
     def get_one_required(self, locator: Any) -> T:
         """
-        Gets a required component reference that matches specified locator.
+        Gets a required component component that matches specified locator.
 
-        :param locator: the locator to find a reference by.
+        :param locator: the locator to find a component by.
 
-        :return: a matching component reference.
+        :return: a matching component component.
 
         :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when no references found.
         """
@@ -128,7 +127,7 @@ class ReferencesDecorator(IReferences):
     def get_required(self, locator: Any) -> List[T]:
         """
         Gets all component references that match specified locator.
-        At least one component reference must be present. If it doesn't the method throws an error.
+        At least one component component must be present. If it doesn't the method throws an error.
 
         :param locator: the locator to find references by.
 
@@ -142,9 +141,9 @@ class ReferencesDecorator(IReferences):
         """
         Gets all component references that match specified locator.
 
-        :param locator: the locator to find a reference by.
+        :param locator: the locator to find a component by.
 
-        :param required: forces to raise an exception if no reference is found.
+        :param required: forces to raise an exception if no component is found.
 
         :return: a list with matching component references.
 

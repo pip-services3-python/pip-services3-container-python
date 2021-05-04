@@ -67,11 +67,11 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
 
     def put(self, locator: Any = None, component: Any = None) -> Any:
         """
-        Puts a new reference into this reference map.
+        Puts a new component into this component map.
 
-        :param locator: a locator to find the reference by.
+        :param locator: a locator to find the component by.
 
-        :param component: a component reference to be added.
+        :param component: a component component to be added.
         """
         super(LinkReferencesDecorator, self).put(locator, component)
 
@@ -80,13 +80,13 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
 
     def remove(self, locator: Any) -> Any:
         """
-        Removes a previously added reference that matches specified locator.
+        Removes a previously added component that matches specified locator.
         If many references match the locator, it removes only the first one.
         When all references shall be removed, use :func:`remove_all` method instead.
 
-        :param locator: a locator to remove reference
+        :param locator: a locator to remove component
 
-        :return: the removed component reference.
+        :return: the removed component component.
         """
         component = super(LinkReferencesDecorator, self).remove(locator)
 

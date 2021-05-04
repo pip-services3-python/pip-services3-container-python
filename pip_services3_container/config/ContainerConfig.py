@@ -12,7 +12,6 @@ from typing import Sequence, Any
 
 from pip_services3_commons.config import ConfigParams
 
-from pip_services3_container.config import ContainerConfig
 from .ComponentConfig import ComponentConfig
 
 
@@ -33,7 +32,7 @@ class ContainerConfig(list):
                 self.append(component)
 
     @staticmethod
-    def from_value(value: Any) -> ContainerConfig:
+    def from_value(value: Any) -> 'ContainerConfig':
         """
         Creates a new :class:`ContainerConfig <pip_services3_container.config.ContainerConfig.ContainerConfig>` object filled with key-value pairs from specified object.
         The value is converted into :class:`ConfigParams <pip_services3_commons.config.ConfigParams.ConfigParams>` object which is used to create the object.
@@ -46,7 +45,7 @@ class ContainerConfig(list):
         return ContainerConfig.from_config(config)
 
     @staticmethod
-    def from_config(config: ConfigParams) -> ContainerConfig:
+    def from_config(config: ConfigParams) -> 'ContainerConfig':
         """
         Creates a new :class:`ContainerConfig <pip_services3_container.config.ContainerConfig.ContainerConfig>` object based on configuration parameters.
         Each section in the configuration parameters is converted into a component configuration.

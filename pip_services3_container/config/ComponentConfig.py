@@ -13,8 +13,6 @@ from pip_services3_commons.errors import ConfigException
 from pip_services3_commons.refer import Descriptor
 from pip_services3_commons.reflect import TypeDescriptor
 
-from pip_services3_container.config import ComponentConfig
-
 
 class ComponentConfig:
     """
@@ -38,7 +36,7 @@ class ComponentConfig:
         self.config: ConfigParams = config
 
     @staticmethod
-    def from_config(config: ConfigParams) -> ComponentConfig:
+    def from_config(config: ConfigParams) -> 'ComponentConfig':
         """
         Creates a new instance of ComponentConfig based on section from container configuration.
 
