@@ -8,6 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from pip_services3_commons.refer import IReferences
 from pip_services3_commons.refer import Referencer
@@ -15,57 +16,56 @@ from pip_services3_commons.run import IOpenable
 
 from .ReferencesDecorator import ReferencesDecorator
 
+
 class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
     """
     References decorator that automatically sets references to newly added components
     that implement :class:`IReferenceable <pip_services3_commons.refer.IReferenceable.IReferenceable>` interface and unsets references
     from removed components that implement :class:`IUnreferenceable <pip_services3_commons.refer.IUnreferenceable.IUnreferenceable>` interface.
     """
-    _opened = False
 
-    def __init__(self, base_references, parent_references):
+    def __init__(self, next_references: IReferences, top_references: IReferences):
         """
         Creates a new instance of the decorator.
 
-        :param base_references: the next references or decorator in the chain.
+        :param next_references: the next references or decorator in the chain.
 
-        :param parent_references: the decorator at the top of the chain.
+        :param top_references: the decorator at the top of the chain.
         """
-        super(LinkReferencesDecorator, self).__init__(base_references, parent_references)
+        super(LinkReferencesDecorator, self).__init__(next_references, top_references)
+        self.__opened = False
 
-
-    def is_opened(self):
+    def is_open(self) -> bool:
         """
         Checks if the component is opened.
 
         :return: true if the component has been opened and false otherwise.
         """
-        return self._opened
+        return self.__opened
 
-    def open(self, correlation_id):
+    def open(self, correlation_id: str):
         """
         Opens the component.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
-        if not self._opened:
+        if not self.__opened:
             components = self.get_all()
             Referencer.set_references(self.parent_references, components)
-            self._opened = True
+            self.__opened = True
 
-    def close(self, correlation_id):
+    def close(self, correlation_id: str):
         """
         Closes component and frees used resources.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
-        if self._opened:
+        if self.__opened:
             components = self.get_all()
             Referencer.unset_references(components)
-            self._opened = False
+            self.__opened = False
 
-
-    def put(self, locator = None, component = None):
+    def put(self, locator: Any = None, component: Any = None) -> Any:
         """
         Puts a new reference into this reference map.
 
@@ -75,11 +75,10 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
         """
         super(LinkReferencesDecorator, self).put(locator, component)
 
-        if self._opened:
+        if self.__opened:
             Referencer.set_references_for_one(self.parent_references, component)
 
-
-    def remove(self, locator):
+    def remove(self, locator: Any) -> Any:
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
@@ -91,13 +90,12 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
         """
         component = super(LinkReferencesDecorator, self).remove(locator)
 
-        if self._opened:
+        if self.__opened:
             Referencer.unset_references_for_one(component)
 
         return component
 
-
-    def remove_all(self, locator):
+    def remove_all(self, locator: Any) -> List[Any]:
         """
         Removes all component references that match the specified locator.
 
@@ -107,7 +105,7 @@ class LinkReferencesDecorator(ReferencesDecorator, IOpenable):
         """
         components = super(LinkReferencesDecorator, self).remove_all(locator)
 
-        if self._opened:
+        if self.__opened:
             Referencer.unset_references(components)
 
         return components

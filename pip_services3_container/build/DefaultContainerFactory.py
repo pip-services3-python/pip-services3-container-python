@@ -10,13 +10,13 @@
 """
 
 from pip_services3_components.auth import DefaultCredentialStoreFactory
-from pip_services3_components.build import CompositeFactory
+from pip_services3_components.build import CompositeFactory, IFactory
 from pip_services3_components.cache import DefaultCacheFactory
 from pip_services3_components.config import DefaultConfigReaderFactory
 from pip_services3_components.connect import DefaultDiscoveryFactory
 from pip_services3_components.count import DefaultCountersFactory
 from pip_services3_components.info.DefaultInfoFactory import DefaultInfoFactory
-from pip_services3_components.log import DefaultLoggerFactory
+from pip_services3_components.log.DefaultLoggerFactory import DefaultLoggerFactory
 from pip_services3_components.test.DefaultTestFactory import DefaultTestFactory
 from pip_services3_components.trace.DefaultTracerFactory import DefaultTracerFactory
 
@@ -26,7 +26,7 @@ class DefaultContainerFactory(CompositeFactory):
     Creates default container components (loggers, counters, caches, locks, etc.) by their descriptors.
     """
 
-    def __init__(self, *factories):
+    def __init__(self, *factories: IFactory):
         """
         Create a new instance of the factory and sets nested factories.
 

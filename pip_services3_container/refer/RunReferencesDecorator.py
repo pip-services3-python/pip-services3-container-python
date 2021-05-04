@@ -8,32 +8,33 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from pip_services3_commons.refer import IReferences
-from pip_services3_commons.run import Opener
 from pip_services3_commons.run import Closer
+from pip_services3_commons.run import Opener, IOpenable
 
 from .ReferencesDecorator import ReferencesDecorator
 
-class RunReferencesDecorator(ReferencesDecorator):
+
+class RunReferencesDecorator(ReferencesDecorator, IOpenable):
     """
     References decorator that automatically opens to newly added components
     that implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface and closes removed components that implement :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface.
     """
-    _opened = False
 
-    def __init__(self, base_references, parent_references):
+    def __init__(self, next_references: IReferences, top_references: IReferences):
         """
         Creates a new instance of the decorator.
 
-        :param base_references: the next references or decorator in the chain.
+        :param next_references: the next references or decorator in the chain.
 
-        :param parent_references: the decorator at the top of the chain.
+        :param top_references: the decorator at the top of the chain.
         """
-        super(RunReferencesDecorator, self).__init__(base_references, parent_references)
+        super(RunReferencesDecorator, self).__init__(next_references, top_references)
+        self._opened = False
 
-
-    def is_opened(self):
+    def is_open(self) -> bool:
         """
         Checks if the component is opened.
 
@@ -41,7 +42,7 @@ class RunReferencesDecorator(ReferencesDecorator):
         """
         return self._opened
 
-    def open(self, correlation_id):
+    def open(self, correlation_id: str):
         """
         Opens the component.
 
@@ -52,7 +53,7 @@ class RunReferencesDecorator(ReferencesDecorator):
             Opener.open(correlation_id, components)
             self._opened = True
 
-    def close(self, correlation_id):
+    def close(self, correlation_id: str):
         """
         Closes component and frees used resources.
 
@@ -63,8 +64,7 @@ class RunReferencesDecorator(ReferencesDecorator):
             Closer.close(correlation_id, components)
             self._opened = False
 
-
-    def put(self, locator = None, component = None):
+    def put(self, locator: Any = None, component: Any = None):
         """
         Puts a new reference into this reference map.
 
@@ -77,8 +77,7 @@ class RunReferencesDecorator(ReferencesDecorator):
         if self._opened:
             Opener.open_one(None, component)
 
-
-    def remove(self, locator):
+    def remove(self, locator: Any) -> Any:
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
@@ -95,8 +94,7 @@ class RunReferencesDecorator(ReferencesDecorator):
 
         return component
 
-
-    def remove_all(self, locator):
+    def remove_all(self, locator: Any) -> List[Any]:
         """
         Removes all component references that match the specified locator.
 

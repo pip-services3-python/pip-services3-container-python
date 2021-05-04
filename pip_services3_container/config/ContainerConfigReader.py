@@ -8,20 +8,21 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-
+from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.errors import ConfigException
 from pip_services3_components.config import JsonConfigReader
 from pip_services3_components.config import YamlConfigReader
+
 from .ContainerConfig import ContainerConfig
 
 
-class ContainerConfigReader():
+class ContainerConfigReader:
     """
     Helper class that reads container configuration from JSON or YAML file.
     """
 
     @staticmethod
-    def read_from_file(correlation_id, path, parameters):
+    def read_from_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from JSON or YAML file.
         The type of the file is determined by file extension.
@@ -34,7 +35,7 @@ class ContainerConfigReader():
 
         :return: the read container configuration
         """
-        if path == None:
+        if path is None:
             raise ConfigException(correlation_id, "NO_PATH", "Missing config file path")
 
         index = path.rfind('.')
@@ -49,7 +50,7 @@ class ContainerConfigReader():
         return ContainerConfigReader.read_from_json_file(correlation_id, path, parameters)
 
     @staticmethod
-    def read_from_json_file(correlation_id, path, parameters):
+    def read_from_json_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from JSON file.
 
@@ -65,7 +66,7 @@ class ContainerConfigReader():
         return ContainerConfig.from_config(config)
 
     @staticmethod
-    def read_from_yaml_file(correlation_id, path, parameters):
+    def read_from_yaml_file(correlation_id: str, path: str, parameters: ConfigParams) -> ContainerConfig:
         """
         Reads container configuration from YAML file.
 
@@ -79,4 +80,3 @@ class ContainerConfigReader():
         """
         config = YamlConfigReader.read_config(correlation_id, path, parameters)
         return ContainerConfig.from_config(config)
-

@@ -8,31 +8,35 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, Optional, List, TypeVar
 
-from pip_services3_commons.refer import IReferences
 from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.refer import IReferences
 from pip_services3_commons.refer import ReferenceException
 from pip_services3_components.build import IFactory
 
 from .ReferencesDecorator import ReferencesDecorator
+
+T = TypeVar('T')  # Declare type variable
+
 
 class BuildReferencesDecorator(ReferencesDecorator):
     """
     References decorator that automatically creates missing components using
     available component factories upon component retrival.
     """
-    def __init__(self, base_references, parent_references):
+
+    def __init__(self, next_references: IReferences, top_references: IReferences):
         """
         Creates a new instance of the decorator.
 
-        :param base_references: the next references or decorator in the chain.
+        :param next_references: the next references or decorator in the chain.
 
-        :param parent_references: the decorator at the top of the chain.
+        :param top_references: the decorator at the top of the chain.
         """
-        super(BuildReferencesDecorator, self).__init__(base_references, parent_references)
+        super(BuildReferencesDecorator, self).__init__(next_references, top_references)
 
-
-    def find_factory(self, locator):
+    def find_factory(self, locator: Any) -> Optional[IFactory]:
         """
         Finds a factory capable creating component by given descriptor
         from the components registered in the references.
@@ -44,12 +48,11 @@ class BuildReferencesDecorator(ReferencesDecorator):
         components = self.get_all()
         for component in components:
             if isinstance(component, IFactory):
-                if component.can_create(locator) != None:
+                if component.can_create(locator) is not None:
                     return component
         return None
 
-
-    def create(self, locator, factory):
+    def create(self, locator: Any, factory: IFactory) -> Any:
         """
         Creates a component identified by given locator.
 
@@ -68,8 +71,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
         except Exception as ex:
             return None
 
-
-    def clarify_locator(self, locator, factory):
+    def clarify_locator(self, locator: Any, factory: IFactory) -> Any:
         """
         Clarifies a component locator by merging two descriptors into one to replace missing fields.
         That allows to get a more complete descriptor that includes all possible fields.
@@ -80,20 +82,20 @@ class BuildReferencesDecorator(ReferencesDecorator):
 
         :return: clarified component descriptor (locator)
         """
-        if factory == None:
+        if factory is None:
             return locator
         if not isinstance(locator, Descriptor):
             return locator
-        
+
         another_locator = factory.can_create(locator)
-        if another_locator == None:
+        if another_locator is None:
             return locator
         if not isinstance(another_locator, Descriptor):
             return locator
-        
+
         descriptor = locator
         another_descriptor = another_locator
-        
+
         return Descriptor(
             descriptor.get_group() if descriptor.get_group() != None else another_descriptor.get_group(),
             descriptor.get_type() if descriptor.get_type() != None else another_descriptor.get_type(),
@@ -102,8 +104,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
             descriptor.get_version() if descriptor.get_version() != None else another_descriptor.get_version()
         )
 
-
-    def find(self, locator, required):
+    def find(self, locator: Any, required: bool) -> List[T]:
         """
         Gets all component references that match specified locator.
 
@@ -119,7 +120,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
         if len(components) == 0:
             factory = self.find_factory(locator)
             component = self.create(locator, factory)
-            if component != None:
+            if component is not None:
                 try:
                     locator = self.clarify_locator(locator, factory)
                     self.parent_references.put(locator, component)

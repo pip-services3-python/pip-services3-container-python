@@ -10,13 +10,13 @@
 """
 
 import os
-import sys
 import signal
-import time
+import sys
 import threading
 
-from pip_services3_components.log import ConsoleLogger
 from pip_services3_commons.config import ConfigParams
+from pip_services3_components.log import ConsoleLogger
+
 from .Container import Container
 
 
@@ -40,10 +40,10 @@ class ProcessContainer(Container):
 
             container.run()
     """
-    _config_path = './config/config.yml'
-    _exit_event = None
 
-    def __init__(self, name=None, description=None):
+    __exit_event: threading.Event = None
+
+    def __init__(self, name: str = None, description: str = None):
         """
         Creates a new instance of the container.
 
@@ -52,11 +52,12 @@ class ProcessContainer(Container):
         :param description: (optional) a container description (accessible via ContextInfo)
         """
         super(ProcessContainer, self).__init__(name, description)
+        self._config_path = './config/config.yml'
         self._logger = ConsoleLogger()
-        self._exit_event = threading.Event()
+        self.__exit_event = threading.Event()
 
-    def _get_config_path(self):
-        args = sys.argv
+    def __get_config_path(self, *args: str) -> str:
+        args = args if len(args) > 0 else sys.argv
         index = 0
         while index < len(args):
             arg = args[index]
@@ -68,16 +69,16 @@ class ProcessContainer(Container):
             index += 1
         return self._config_path
 
-    def _get_parameters(self):
+    def __get_parameters(self, *args: str) -> ConfigParams:
         # Process command line parameters
-        args = sys.argv
+        args = args if len(args) > 0 else sys.argv
         line = ''
         index = 0
         while index < len(args):
             arg = args[index]
             next_arg = args[index + 1] if index < len(args) - 1 else None
-            next_arg = None if next_arg != None and next_arg.startswith('-') else next_arg
-            if next_arg != None:
+            next_arg = None if next_arg is not None and next_arg.startswith('-') else next_arg
+            if next_arg is not None:
                 if arg == "--param" or arg == "--params" or arg == "-p":
                     if len(line) > 0:
                         line = line + ';'
@@ -93,8 +94,8 @@ class ProcessContainer(Container):
 
         return parameters
 
-    def _show_help(self):
-        args = sys.argv
+    def __show_help(self, *args: str) -> bool:
+        args = args if len(args) > 0 else sys.argv
         index = 0
         while index < len(args):
             arg = args[index]
@@ -103,54 +104,54 @@ class ProcessContainer(Container):
             index += 1
         return False
 
-    def _print_help(self):
-        print("Pip.Services process container - http://www.github.com/pip-services/pip-services")
+    def __print_help(self):
+        print("Pip.Services process container - http://www.pipservices.org")
         print("run [-h] [-c <config file>] [-p <param>=<value>]*")
 
-    def _capture_errors(self, correlation_id):
+    def __capture_errors(self, correlation_id: str):
         def handle_exception(exc_type, exc_value, exc_traceback):
             self._logger.fatal(correlation_id, exc_value, "Process is terminated")
-            self._exit_event.set()
+            self.__exit_event.set()
             # sys.exit(1)
 
         sys.excepthook = handle_exception
 
-    def _capture_exit(self, correlation_id):
+    def __capture_exit(self, correlation_id: str):
         self._logger.info(correlation_id, "Press Control-C to stop the microservice...")
 
         def sigint_handler(signum, frame):
             self._logger.info(correlation_id, "Goodbye!")
-            self._exit_event.set()
+            self.__exit_event.set()
             # sys.exit(1)
 
         signal.signal(signal.SIGINT, sigint_handler)
         signal.signal(signal.SIGTERM, sigint_handler)
 
         # Wait and close
-        self._exit_event.clear()
-        while not self._exit_event.is_set():
+        self.__exit_event.clear()
+        while not self.__exit_event.is_set():
             try:
-                self._exit_event.wait(1)
+                self.__exit_event.wait(1)
             except:
                 pass  # Do nothing...
 
-    def run(self):
+    def run(self, *args: str):
         """
         Runs the container by instantiating and running components inside the container.
 
         It reads the container configuration, creates, configures, references and opens components.
         On process exit it closes, unreferences and destroys components to gracefully shutdown.
         """
-        if self._show_help():
-            self._print_help()
+        if self.__show_help(*args):
+            self.__print_help()
             return
 
         correlation_id = self._info.name
-        path = self._get_config_path()
-        parameters = self._get_parameters()
+        path = self.__get_config_path(*args)
+        parameters = self.__get_parameters(*args)
         self.read_config_from_file(correlation_id, path, parameters)
 
-        self._capture_errors(correlation_id)
+        self.__capture_errors(correlation_id)
         self.open(correlation_id)
-        self._capture_exit(correlation_id)
+        self.__capture_exit(correlation_id)
         self.close(correlation_id)

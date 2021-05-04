@@ -10,24 +10,24 @@
 """
 
 from pip_services3_commons.config import IConfigurable
-from pip_services3_components.build import CreateException
-from pip_services3_commons.refer import References
-from pip_services3_commons.refer import ReferenceException
 from pip_services3_commons.refer import IReferenceable
+from pip_services3_commons.refer import ReferenceException
 from pip_services3_commons.reflect import TypeReflector
+from pip_services3_components.build import CreateException
 
-from ..config.ComponentConfig import ComponentConfig
-from ..config.ContainerConfig import ContainerConfig
 from .ManagedReferences import ManagedReferences
+from ..config.ContainerConfig import ContainerConfig
+
 
 class ContainerReferences(ManagedReferences):
     """
     Container managed references that can be created from container configuration.
     """
+
     def __init__(self):
         super(ContainerReferences, self).__init__()
 
-    def put_from_config(self, config):
+    def put_from_config(self, config: ContainerConfig):
         """
         Puts components into the references from container configuration.
 
@@ -39,20 +39,20 @@ class ContainerReferences(ManagedReferences):
 
             try:
                 # Create component dynamically
-                if component_config.type != None:
+                if component_config.type is not None:
                     locator = component_config.type
                     component = TypeReflector.create_instance_by_descriptor(component_config.type)
                 # Or create component statically
-                elif component_config.descriptor != None:
+                elif component_config.descriptor is not None:
                     locator = component_config.descriptor
                     factory = self._builder.find_factory(locator)
                     component = self._builder.create(locator, factory)
-                    if component == None:
+                    if component is None:
                         raise ReferenceException(None, locator)
                     locator = self._builder.clarify_locator(locator, factory)
 
                 # Check that component was created
-                if component == None:
+                if component is None:
                     raise CreateException("CANNOT_CREATE_COMPONENT", "Cannot create component") \
                         .with_details("config", config)
 

@@ -8,17 +8,17 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Sequence, Any
 
 from pip_services3_commons.refer import References
-from pip_services3_commons.refer import Referencer
 from pip_services3_commons.run import IOpenable
-from pip_services3_commons.run import Opener
-from pip_services3_commons.run import Closer
+from pip_services3_container.refer import ManagedReferences
 
-from .ReferencesDecorator import ReferencesDecorator
 from .BuildReferencesDecorator import BuildReferencesDecorator
 from .LinkReferencesDecorator import LinkReferencesDecorator
+from .ReferencesDecorator import ReferencesDecorator
 from .RunReferencesDecorator import RunReferencesDecorator
+
 
 class ManagedReferences(ReferencesDecorator, IOpenable):
     """
@@ -28,12 +28,8 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         - Auto-opening newly added components
         - Auto-closing removed components
     """
-    _references = None
-    _builder = BuildReferencesDecorator
-    _linker = LinkReferencesDecorator
-    _runner = RunReferencesDecorator
 
-    def __init__(self, tuples = None):
+    def __init__(self, tuples: Sequence[Any] = None):
         """
         Creates a new instance of the references
 
@@ -41,22 +37,22 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         """
         super(ManagedReferences, self).__init__(None, None)
 
-        self._references = References(tuples)
-        self._builder = BuildReferencesDecorator(self._references, self)
-        self._linker = LinkReferencesDecorator(self._builder, self)
-        self._runner = RunReferencesDecorator(self._linker, self)
+        self._references: References = References(tuples)
+        self._builder: BuildReferencesDecorator = BuildReferencesDecorator(self._references, self)
+        self._linker: LinkReferencesDecorator = LinkReferencesDecorator(self._builder, self)
+        self._runner: RunReferencesDecorator = RunReferencesDecorator(self._linker, self)
 
         self.base_references = self._runner
 
-    def is_opened(self):
+    def is_open(self) -> bool:
         """
         Checks if the component is opened.
 
         :return: true if the component has been opened and false otherwise.
         """
-        return self._linker.is_opened() and self._runner.is_opened()
+        return self._linker.is_open() and self._runner.is_open()
 
-    def open(self, correlation_id):
+    def open(self, correlation_id: str):
         """
         Opens the component.
 
@@ -65,7 +61,7 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         self._linker.open(correlation_id)
         self._runner.open(correlation_id)
 
-    def close(self, correlation_id):
+    def close(self, correlation_id: str):
         """
         Closes component and frees used resources.
 
@@ -75,7 +71,7 @@ class ManagedReferences(ReferencesDecorator, IOpenable):
         self._linker.close(correlation_id)
 
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> ManagedReferences:
         """
         Creates a new :class:`ManagedReferences <pip_services3_container.refer.ManagedReferences.ManagedReferences>` object filled with provided key-value pairs called tuples.
         Tuples parameters contain a sequence of locator1, component1, locator2, component2, ... pairs.

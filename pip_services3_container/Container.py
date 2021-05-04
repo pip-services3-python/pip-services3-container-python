@@ -11,25 +11,22 @@
 
 import traceback
 
-from pip_services3_commons.config import IConfigurable
-from pip_services3_components.info import DefaultInfoFactory
-from pip_services3_components.log import NullLogger
-from pip_services3_components.log import CompositeLogger
+from pip_services3_commons.config import IConfigurable, ConfigParams
 from pip_services3_commons.errors import InvalidStateException
-from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.refer import Descriptor, IReferences
 from pip_services3_commons.refer import IReferenceable
 from pip_services3_commons.refer import IUnreferenceable
-from pip_services3_commons.refer import Referencer
 from pip_services3_commons.run import IOpenable
-from pip_services3_commons.run import Opener
-from pip_services3_commons.run import Closer
-
-from .build.DefaultContainerFactory import DefaultContainerFactory
+from pip_services3_components.build import IFactory
 from pip_services3_components.info.ContextInfo import ContextInfo
 from pip_services3_components.info.DefaultInfoFactory import DefaultInfoFactory
+from pip_services3_components.log import CompositeLogger
+from pip_services3_components.log import NullLogger, ILogger
+
+from .build.DefaultContainerFactory import DefaultContainerFactory
+from .config.ContainerConfig import ContainerConfig
 from .config.ContainerConfigReader import ContainerConfigReader
 from .refer.ContainerReferences import ContainerReferences
-from .config.ContainerConfig import ContainerConfig
 
 
 class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
@@ -90,13 +87,8 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             container.close("123")
             print "Container is closed"
     """
-    _logger = None
-    _info = None
-    _config = None
-    _factories = None
-    _references = None
 
-    def __init__(self, name=None, description=None):
+    def __init__(self, name: str = None, description: str = None):
         """
         Creates a new instance of the container.
 
@@ -104,11 +96,14 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
         :param description: (optional) a container description (accessible via ContextInfo)
         """
-        self._logger = NullLogger()
-        self._info = ContextInfo(name, description)
-        self._factories = DefaultContainerFactory()
 
-    def configure(self, config):
+        self._config: ContainerConfig = None
+        self._references: ContainerReferences = None
+        self._logger: ILogger = NullLogger()
+        self._info: ContextInfo = ContextInfo(name, description)
+        self._factories: DefaultContainerFactory = DefaultContainerFactory()
+
+    def configure(self, config: ConfigParams):
         """
         Configures component by passing configuration parameters.
 
@@ -116,7 +111,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         self._config = ContainerConfig.from_config(config)
 
-    def read_config_from_file(self, correlation_id, path, parameters):
+    def read_config_from_file(self, correlation_id: str, path: str, parameters: ConfigParams):
         """
         Reads container configuration from JSON or YAML file and parameterizes it with given values.
 
@@ -129,7 +124,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         self._config = ContainerConfigReader.read_from_file(correlation_id, path, parameters)
         self._logger.trace(correlation_id, self._config.__str__())
 
-    def set_references(self, references):
+    def set_references(self, references: IReferences):
         """
         Sets references to dependent components.
 
@@ -143,16 +138,16 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         pass
 
-    def _init_references(self, references):
+    def __init_references(self, references:IReferences):
         # Override in base classes
         existingInfo = references.get_one_optional(DefaultInfoFactory.ContextInfoDescriptor)
         if existingInfo is None:
             references.put(DefaultInfoFactory.ContextInfoDescriptor, self._info)
         else:
             self._info = existingInfo
-        references.put(DefaultContainerFactory.DefaultContainerFactoryDescriptor, self._factories)
+        references.put(Descriptor("pip-services", "factory", "container", "default", "1.0"), self._factories)
 
-    def add_factories(self, factory):
+    def add_factories(self, factory: IFactory):
         """
         Adds a factory to the container. The factory is used to create components
         added to the container by their locators (descriptors).
@@ -161,7 +156,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         self._factories.add(factory)
 
-    def is_opened(self):
+    def is_open(self) -> bool:
         """
         Checks if the component is opened.
 
@@ -169,7 +164,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
         """
         return self._references is not None
 
-    def open(self, correlation_id):
+    def open(self, correlation_id: str):
         """
         Opens the component.
 
@@ -183,7 +178,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
 
             # Create references with configured components
             self._references = ContainerReferences()
-            self._init_references(self._references)
+            self.__init_references(self._references)
             self._references.put_from_config(self._config)
             self.set_references(self._references)
 
@@ -202,7 +197,7 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             traceback.print_exc()
             raise ex
 
-    def close(self, correlation_id):
+    def close(self, correlation_id: str):
         """
         Closes component and frees used resources.
 
