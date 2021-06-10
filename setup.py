@@ -23,7 +23,7 @@ except:
  
 setup(
     name='pip_services3_container',
-    version='3.2.0',
+    version='3.2.2',
     url='http://github.com/pip-services3-python/pip-services3-container-python',
     license='MIT',
     author='Conceptual Vision Consulting LLC',
@@ -36,7 +36,12 @@ setup(
     zip_safe=True,
     platforms='any',
     install_requires=[
-        'iso8601', 'PyYAML', 'pytest', 'pytz', 'pystache', 'pybars3', 'pip_services3_commons', 'pip_services3_components'
+        'iso8601', 'PyYAML', 'pytest', 
+        'pytz', 'pystache', 'pybars3', 
+
+        'pip_services3_commons', 
+        'pip_services3_components',
+        'pip_services3_expressions'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -44,8 +49,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]    
