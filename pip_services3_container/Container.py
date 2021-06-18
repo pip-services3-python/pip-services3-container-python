@@ -194,7 +194,10 @@ class Container(IConfigurable, IReferenceable, IUnreferenceable, IOpenable):
             self._logger = CompositeLogger(self._references)
             self._logger.info(correlation_id, "Container " + self._info.name + " started.")
         except Exception as ex:
-            self._logger.error(correlation_id, ex, "Failed to start container")
+            self._logger.fatal(correlation_id, ex, "Failed to start container")
+
+            self.close(None)
+
             traceback.print_exc()
             raise ex
 

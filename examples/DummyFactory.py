@@ -9,21 +9,15 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from DummyController import DummyController
-
 from pip_services3_commons.refer import Descriptor
 from pip_services3_components.build import Factory
 
-DummyFactoryDescriptor = Descriptor(
-    "pip-services-dummies", "factory", "default", "default", "1.0"
-)
+from DummyController import DummyController
 
-DummyControllerDescriptor = Descriptor(
-    "pip-services-dummies", "controller", "default", "default", "1.0"
-)
 
 class DummyFactory(Factory):
+    ControllerDescriptor = Descriptor("pip-services-dummies", "controller", "default", "*", "1.0")
 
     def __init__(self):
-        self.register_as_type(DummyControllerDescriptor, DummyController)
-
+        super().__init__()
+        self.register_as_type(DummyFactory.ControllerDescriptor, DummyController)

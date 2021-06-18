@@ -61,7 +61,8 @@ class ContainerReferences(ManagedReferences):
                     component.configure(component_config.config)
 
                 # Set references to factories
-                if isinstance(component, IReferenceable):
+                if isinstance(component, IReferenceable) and hasattr(component, 'can_create') and hasattr(component,
+                                                                                                          'create'):
                     component.set_references(self)
 
             except Exception as ex:

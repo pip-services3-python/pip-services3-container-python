@@ -9,8 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services3_container.ProcessContainer import ProcessContainer
 from DummyFactory import DummyFactory
+from pip_services3_container.ProcessContainer import ProcessContainer
+
 
 class DummyProcess(ProcessContainer):
 
