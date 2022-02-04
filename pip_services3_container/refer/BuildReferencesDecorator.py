@@ -115,7 +115,7 @@ class BuildReferencesDecorator(ReferencesDecorator):
         components = super(BuildReferencesDecorator, self).find(locator, False)
 
         # Try to create component
-        if len(components) == 0:
+        if required and len(components) == 0:
             factory = self.find_factory(locator)
             component = self.create(locator, factory)
             if component is not None:
