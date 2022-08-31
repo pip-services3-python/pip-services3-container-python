@@ -1,5 +1,5 @@
 {
-    "name":  "pip_services3_container",
+    "name":  "pip-services3-container",
     "type": "module",
     "language": "python",
     "version": "3.2.5",
